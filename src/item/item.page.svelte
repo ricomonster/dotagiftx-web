@@ -10,6 +10,6 @@
   let {}: Props = $props();
 </script>
 
-<section id="item-page">
+<section class="item-page">
 
 </section>

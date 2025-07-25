@@ -12,7 +12,7 @@ const config = {
     files: {
       routes: 'src/app/routes/',
       appTemplate: 'src/app/app.html',
-      assets: 'public',
+      assets: 'static',
       hooks: {
         server: 'src/app/hooks.server.ts',
       }
@@ -22,7 +22,6 @@ const config = {
       $lib: path.resolve('./src/lib'),
       $routes: '.svelte-kit/types/src/app/routes',
       $src: path.resolve('./src'),
-      $static: path.resolve('./src/static'),
     }
   }
 };
