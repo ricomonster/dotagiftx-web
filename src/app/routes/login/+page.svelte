@@ -1,6 +1,6 @@
 <script lang="ts">
   // Modules
-  import { LoginPage } from '$src/auth';
+  import { LoginPage } from '$package/auth';
 </script>
 
 <LoginPage />

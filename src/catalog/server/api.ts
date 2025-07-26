@@ -1,9 +1,9 @@
 // Interfaces
 import type { RequestHandler } from '$routes/api/catalogs/$types';
-import type { CatalogSort, GetCatalogOpts } from '$src/dotagiftx';
+import type { CatalogSort, GetCatalogOpts } from '$package/dotagiftx';
 
 // Modules
-import { getCatalogs } from '$src/dotagiftx';
+import { getCatalogs } from '$package/dotagiftx';
 
 /**
  * GET /api/catalog

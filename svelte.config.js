@@ -21,7 +21,7 @@ const config = {
       $app: path.resolve('./src/app'),
       $lib: path.resolve('./src/lib'),
       $routes: '.svelte-kit/types/src/app/routes',
-      $src: path.resolve('./src'),
+      $package: path.resolve('./src'),
     }
   }
 };

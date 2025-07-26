@@ -3,7 +3,7 @@
   import '../../../node_modules/lineicons/assets/icon-fonts/lineicons.css';
 
   // Modules
-  import { SiteHeader } from '$src/shared';
+  import { SiteHeader } from '$package/shared';
 
   let { children } = $props();
 </script>

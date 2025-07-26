@@ -10,7 +10,7 @@ import { send } from './client';
 // Config
 import { PATHS } from './config';
 
-export type CatalogSort = 'popular' | 'recent'
+export type CatalogSort = 'popular' | 'recent' | 'recent-bid' | 'sale_count:desc' | 'sale_count:asc' | 'trending'
 
 export interface Catalog extends Omit<Item, 'active'> {
   asks: unknown;
@@ -44,6 +44,9 @@ export interface GetCatalogOpts {
  */
 export const getCatalogs = (opts: GetCatalogOpts): Promise<Result<DotagiftxList<Catalog[]>>> => {
   let path = PATHS.CATALOG_LIST;
+  if (opts.sort && opts.sort === 'trending') {
+    path = PATHS.CATALOGS_TRENDING_TOP10;
+  }
 
   const query = qs.stringify(opts);
   if (query) {

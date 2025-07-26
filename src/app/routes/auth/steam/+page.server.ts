@@ -1,1 +1,1 @@
-export { steam as load } from '$src/auth/server';
+export { steam as load } from '$package/auth/server';

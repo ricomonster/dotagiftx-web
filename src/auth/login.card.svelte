@@ -2,7 +2,7 @@
   import { Check, TriangleAlert } from '@lucide/svelte';
 
   // Modules
-  import { SteamIcon } from '$src/shared';
+  import { SteamIcon } from '$package/shared';
 
   // Lib
   import { Button } from '$lib/components/ui/button';

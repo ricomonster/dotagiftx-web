@@ -1,8 +1,10 @@
+import { redirect } from '@sveltejs/kit';
+
+// Interfaces
 import type { PageServerLoad as SteamPageServerLoad } from '$routes/auth/steam/$types';
 
-// Modules
-import { getAuthSteamURL } from '$src/dotagiftx';
-import { redirect } from '@sveltejs/kit';
+// Package
+import { getAuthSteamURL } from '$package/dotagiftx';
 
 export const steam: SteamPageServerLoad = async () => {
   const url = getAuthSteamURL();

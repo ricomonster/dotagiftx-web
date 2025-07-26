@@ -1,1 +1,1 @@
-export { GET } from '$src/catalog/server';
+export { GET } from '$package/catalog/server';

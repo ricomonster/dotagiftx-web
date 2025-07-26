@@ -1,4 +1,4 @@
-import { DOTAGIFTX_PATHS, DOTAGIFTX_API } from '$env/static/private';
+import { PUBLIC_DOTAGIFTX_PATHS, PUBLIC_DOTAGIFTX_API } from '$env/static/public';
 
 export interface Paths {
   CATALOG_LIST: string;
@@ -36,5 +36,5 @@ export interface Paths {
   SUBMIT_SURVEY: string;
 }
 
-export const PATHS = JSON.parse(DOTAGIFTX_PATHS) as Paths;
-export const API = DOTAGIFTX_API;
+export const PATHS = JSON.parse(PUBLIC_DOTAGIFTX_PATHS) as Paths;
+export const API = PUBLIC_DOTAGIFTX_API;
