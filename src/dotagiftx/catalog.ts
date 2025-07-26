@@ -1,7 +1,7 @@
 import qs from 'qs';
 
 // Interfaces
-import type { Result, DotagiftxList } from './client';
+import type { Result, DotagiftxList } from './types';
 import type { Item } from './item';
 
 // Client
@@ -20,6 +20,7 @@ export interface Catalog extends Omit<Item, 'active'> {
   highest_bid: number;
   lowest_ask: number;
   median_ask: number;
+  quantity: number;
   recent_ask: string;
   recent_bid: string;
   recent_sale: string;

@@ -1,46 +1,22 @@
-<script lang="ts">
-  import * as Card from '$lib/components/ui/card';
+<script lang="ts" module>
+  // Interfaces
+  import type { PageData } from '$routes/$types';
 
-  // Packages
-  import { CatalogList } from '$package/catalog';
+  interface Props {
+    data: PageData
+  }
+</script>
+<script lang="ts">
+  import Catalogs from './catalogs.svelte';
+  import Heroes from './heroes.svelte';
+
+  let { data }: Props = $props();
+
+  let heroes = data.heroes ? data.heroes as string[] : [] ;
 </script>
 
 <section class="home-page container mx-auto">
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 p-8">
-    <Card.Root>
-      <Card.Header>
-        <h3 class="font-medium text-xl">Trending items</h3>
-      </Card.Header>
-      <Card.Content>
-        <CatalogList sort="trending" />
-      </Card.Content>
-    </Card.Root>
+  <Catalogs />
 
-    <!-- <Card.Root> -->
-    <!--   <Card.Header> -->
-    <!--     <h3 class="font-medium text-xl mb-2">Trending heroes</h3> -->
-    <!--   </Card.Header> -->
-    <!--   <Card.Content> -->
-    <!--     <CatalogList sort="popular" /> -->
-    <!--   </Card.Content> -->
-    <!-- </Card.Root> -->
-
-    <Card.Root>
-      <Card.Header>
-        <h3 class="font-medium text-xl">New buy orders</h3>
-      </Card.Header>
-      <Card.Content>
-        <CatalogList sort="recent-bid" />
-      </Card.Content>
-    </Card.Root>
-
-    <Card.Root>
-      <Card.Header>
-        <h3 class="font-medium text-xl">New sell listings</h3>
-      </Card.Header>
-      <Card.Content>
-        <CatalogList sort="recent" />
-      </Card.Content>
-    </Card.Root>
-  </div>
+  <Heroes {heroes} />
 </section>

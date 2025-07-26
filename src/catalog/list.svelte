@@ -11,8 +11,10 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
+  // Packages
+  import { ItemLoader } from '$package/item';
+
   // Lib
-  import { Skeleton } from '$lib/components/ui/skeleton';
   import { cn } from '$lib/utils';
 
   // Components
@@ -37,18 +39,16 @@
 
 <section class={cn('catalog-list', className)}>
   {#if loading}
-    <div class="flex items-center space-x-4">
-      <Skeleton class="size-12" />
-      <div class="space-y-2 flex-1">
-        <Skeleton class="h-4 w-full" />
-        <Skeleton class="h-4 w-[200px]" />
-      </div>
+    <div class="space-y-2">
+      {#each {length: limit} as _, i (i)}
+        <ItemLoader />
+      {/each}
     </div>
   {:else}
     {#if catalogs}
       {#each catalogs as catalog, i (i)}
         <a href={`/${catalog.slug}`}>
-          <CatalogItem {catalog} {sort} class="mb-2" />
+          <CatalogItem {catalog} {sort} class="mb-4" />
         </a>
       {/each}
     {/if}
