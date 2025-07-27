@@ -15,7 +15,11 @@
   let heroes = data.heroes ? data.heroes as string[] : [] ;
 </script>
 
-<section class="home-page container mx-auto">
+<svelte:head>
+  <title>DotagiftX :: Dota 2 Giftables Community Market</title>
+</svelte:head>
+
+<section class="home-page container mx-auto p-4">
   <Catalogs />
 
   <Heroes {heroes} />

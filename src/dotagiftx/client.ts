@@ -17,11 +17,13 @@ export const send = async <T, U>(options: SendOptions<T>): Promise<Result<U>> =>
       'Content-Type': 'application/json',
       ...options.headers,
     },
+    signal: AbortSignal.timeout(60000)
   };
 
   if (options.body) {
     config.body = JSON.stringify(options.body);
   }
+
 
   console.log('config ::', JSON.stringify({ url, ...config }));
 

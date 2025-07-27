@@ -14,9 +14,8 @@
   let { catalog, class: className, sort, vertical = false }: Props = $props();
 
   // Packages
-  import { Price } from '$package/shared';
+  import { Image, Price } from '$package/shared';
 
-  import ItemImage from './image.svelte';
   import RarityBadge from './rarity.svelte';
 </script>
 
@@ -25,7 +24,7 @@
     vertical ? 'w-full' : 'w-full md:w-1/5',
     'flex-shrink-0'
   )}>
-    <ItemImage key={catalog.slug} class="w-full" />
+    <Image key={catalog.slug} dimension="97x75" class="w-full" type="item" />
   </figure>
 
   <div class="flex-1 flex flex-col md:flex-row justify-between gap-2">
