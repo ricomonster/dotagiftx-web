@@ -31,6 +31,7 @@ export interface Catalog extends Omit<Item, 'active'> {
 }
 
 export interface GetCatalogOpts {
+  hero?: string;
   limit?: number;
   page?: number;
   q?: string;

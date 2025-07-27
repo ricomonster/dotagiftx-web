@@ -10,6 +10,6 @@
 
 <div class="grid grid-cols-5">
   {#each heroes as hero, i (i)}
-    <a href="/">{hero}</a>
+    <a href={`/search?hero=${hero}`}>{hero}</a>
   {/each}
 </div>

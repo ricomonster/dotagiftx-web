@@ -12,13 +12,10 @@
   import { onMount } from 'svelte';
 
   // Packages
-  import { ItemLoader } from '$package/item';
+  import { ItemCard, ItemLoader } from '$package/item';
 
   // Lib
   import { cn } from '$lib/utils';
-
-  // Components
-  import CatalogItem from './item.svelte';
 
   // API
   import { getCatalogs } from './client';
@@ -39,7 +36,7 @@
 
 <section class={cn('catalog-list', className)}>
   {#if loading}
-    <div class="space-y-2">
+    <div class="space-y-4">
       {#each {length: limit} as _, i (i)}
         <ItemLoader />
       {/each}
@@ -48,7 +45,7 @@
     {#if catalogs}
       {#each catalogs as catalog, i (i)}
         <a href={`/${catalog.slug}`}>
-          <CatalogItem {catalog} {sort} class="mb-4" />
+          <ItemCard {catalog} {sort} class="mb-4" />
         </a>
       {/each}
     {/if}
