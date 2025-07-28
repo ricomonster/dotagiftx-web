@@ -7,8 +7,8 @@
   import { CatalogList } from '$package/catalog';
 </script>
 
-<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
-  <Card.Root class="col-span-2 xl:col-span-1">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+  <Card.Root class="lg:col-span-2">
     <Card.Header>
       <h3 class="font-medium text-xl">Trending items</h3>
     </Card.Header>
@@ -17,16 +17,7 @@
     </Card.Content>
   </Card.Root>
 
-  <!-- <Card.Root> -->
-  <!--   <Card.Header> -->
-  <!--     <h3 class="font-medium text-xl mb-2">Trending heroes</h3> -->
-  <!--   </Card.Header> -->
-  <!--   <Card.Content> -->
-  <!--     <CatalogList sort="popular" /> -->
-  <!--   </Card.Content> -->
-  <!-- </Card.Root> -->
-
-  <Card.Root>
+  <Card.Root class="lg:col-span-1">
     <Card.Header class="flex flex-row justify-between items-center">
       <h3 class="font-medium text-xl">New buy orders</h3>
       <a href="/search?sort=recent-bid" class="text-sm">See all</a>
@@ -36,7 +27,7 @@
     </Card.Content>
   </Card.Root>
 
-  <Card.Root>
+  <Card.Root class="lg:col-span-1">
     <Card.Header class="flex flex-row justify-between items-center">
       <h3 class="font-medium text-xl">New sell listings</h3>
       <a href="/search?sort=recent" class="text-sm">See all</a>

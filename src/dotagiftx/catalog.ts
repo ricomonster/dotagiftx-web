@@ -1,8 +1,9 @@
 import qs from 'qs';
 
 // Interfaces
-import type { Result, DotagiftxList } from './types';
 import type { Item } from './item';
+import type { Market } from './market';
+import type { Result, DotagiftxList } from './types';
 
 // Client
 import { send } from './client';
@@ -13,7 +14,7 @@ import { PATHS } from './config';
 export type CatalogSort = 'popular' | 'recent' | 'recent-bid' | 'sale_count:desc' | 'sale_count:asc' | 'trending'
 
 export interface Catalog extends Omit<Item, 'active'> {
-  asks: unknown;
+  asks: Market[];
   avg_sale: number;
   bid_count: number;
   bids: unknown;
@@ -37,6 +38,19 @@ export interface GetCatalogOpts {
   q?: string;
   sort?: CatalogSort;
 }
+
+
+/**
+ * Get catalog details
+ *
+ * @param {string} slug
+ * @returns {Promise<Result<Catalog>>}
+ */
+export const getCatalog = (slug: string): Promise<Result<Catalog>> => {
+  return send<unknown, Catalog>({
+    path: PATHS.CATALOG.replace(':slug', slug)
+  });
+};
 
 /**
  * Get catalog list

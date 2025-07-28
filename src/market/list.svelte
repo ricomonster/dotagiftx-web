@@ -1,13 +1,13 @@
 <script lang="ts" module>
   // Interfaces
-  import type { Market, MarketOptions, MarketSort, DotagiftxList } from '$package/dotagiftx';
+  import type { Market, MarketOptions, MarketSort } from '$package/dotagiftx';
 
   interface Props {
     itemId: string;
     type: number;
     class?: string;
     inventoryStatus?: number;
-    items?: DotagiftxList<Market[]>;
+    items?: Market[];
     sort?: MarketSort;
     status?: number;
   }
@@ -22,7 +22,7 @@
 
   // Lib
   import * as Table from '$lib/components/ui/table';
-  import { Button } from '$lib/components/ui/button';
+  // import { Button } from '$lib/components/ui/button';
   import { cn } from '$lib/utils';
 
   // Client
@@ -54,7 +54,8 @@
         opts.inventory_status = inventoryStatus;
       }
 
-      items = await getMarket(opts);
+      const result = await getMarket(opts);
+      items = result.data;
     }
 
     loading = false;
@@ -69,8 +70,8 @@
           <Table.Cell class="font-medium">Loading...</Table.Cell>
         </Table.Row>
       {:else}
-        {#if items && items.data && items.data.length > 0}
-          {#each items.data as item, i (i)}
+        {#if items && items.length > 0}
+          {#each items as item, i (i)}
             <Table.Row>
               <Table.Cell width="60px">
                 <a href={`/profiles/${item.user.steam_id}`}>

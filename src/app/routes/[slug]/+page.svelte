@@ -3,9 +3,9 @@
   import type { PageData } from './$types';
 
   // Package
-  import { ItemPage } from '$package/item';
+  import { CatalogDetailPage } from '$package/catalog';
 
   export let data: PageData;
 </script>
 
-<ItemPage {data} />
+<CatalogDetailPage {data} />

@@ -8,7 +8,7 @@ import { send } from './client';
 // Config
 import { PATHS } from './config';
 
-export type Boon = 'SHOPKEEPERS_CONTRACT' | 'REFRESHER_ORB' | 'REFRESHER_SHARD'
+export type Boon = 'SHOPKEEPERS_CONTRACT' | 'REFRESHER_ORB' | 'REFRESHER_SHARD' | 'PARTNER_BADGE' | 'DEDICATED_POS_5' | 'TRADER_BADGE'
 
 export interface User {
   id: string;
