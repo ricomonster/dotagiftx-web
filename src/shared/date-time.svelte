@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import { formatDistanceToNow } from 'date-fns';
+  import { formatDistanceToNowStrict } from 'date-fns';
 
   interface Props {
     value: string;
@@ -9,7 +9,7 @@
 <script lang="ts">
   let { value, class: className }: Props = $props();
 
-  let timeAgo = $derived(formatDistanceToNow(new Date(value), { addSuffix: true }));
+  let timeAgo = $derived(formatDistanceToNowStrict(new Date(value), { addSuffix: true }));
 </script>
 
 <time class={className} datetime={value}>{timeAgo}</time>

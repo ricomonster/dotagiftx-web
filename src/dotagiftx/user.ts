@@ -1,5 +1,12 @@
 // Interfaces
 import type { MarketStats } from './market';
+import type { Result } from './types';
+
+// Client
+import { send } from './client';
+
+// Config
+import { PATHS } from './config';
 
 export type Boon = 'SHOPKEEPERS_CONTRACT' | 'REFRESHER_ORB' | 'REFRESHER_SHARD'
 
@@ -25,3 +32,15 @@ export interface User {
   url: string;
 }
 
+/**
+ * Get the user details
+ *
+ * @param {string} steamId
+ * @returns {Promise<Result<User>>}
+ */
+export const getUser = (steamId: string): Promise<Result<User>> => {
+  const path = PATHS.USER_DETAILS.replace(':id', steamId);
+  return send<unknown, User>({
+    path
+  });
+};

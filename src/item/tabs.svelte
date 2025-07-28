@@ -1,9 +1,10 @@
 <script lang="ts" module>
   // Interfaces
-  import type { Item } from '$package/dotagiftx';
+  import type { DotagiftxList, Item, Market } from '$package/dotagiftx';
 
   interface Props {
-    item: Item
+    initial: DotagiftxList<Market[]>
+    item: Item,
   }
 </script>
 <script lang="ts">
@@ -14,7 +15,7 @@
   import * as Card from '$lib/components/ui/card';
   import * as Tabs from '$lib/components/ui/tabs';
 
-  let { item }: Props = $props();
+  let { item, initial }: Props = $props();
 </script>
 
 <Tabs.Root value="offers" class="w-full justify-between">
@@ -27,7 +28,12 @@
   <Card.Root>
     <Card.Content>
       <Tabs.Content value="offers">
-        <MarketList itemId={item.id} type={10} sort="lowest" inventoryStatus={200} />
+        <MarketList
+          inventoryStatus={200}
+          itemId={item.id}
+          items={initial}
+          sort="lowest"
+          type={10} />
       </Tabs.Content>
 
       <Tabs.Content value="orders">Orders</Tabs.Content>

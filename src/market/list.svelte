@@ -1,12 +1,13 @@
 <script lang="ts" module>
   // Interfaces
-  import type { Market, MarketOptions, MarketSort } from '$package/dotagiftx';
+  import type { Market, MarketOptions, MarketSort, DotagiftxList } from '$package/dotagiftx';
 
   interface Props {
     itemId: string;
     type: number;
     class?: string;
     inventoryStatus?: number;
+    items?: DotagiftxList<Market[]>;
     sort?: MarketSort;
     status?: number;
   }
@@ -17,6 +18,7 @@
 
   // Packages
   import { DateTime, Image, Price } from '$package/shared';
+  import { ProfileContact } from '$package/user';
 
   // Lib
   import * as Table from '$lib/components/ui/table';
@@ -27,17 +29,16 @@
   import { getMarket } from './client';
 
   let {
-    class: className,
     itemId,
     type,
-    sort = 'lowest',
+    class: className,
     inventoryStatus,
+    items,
+    sort = 'lowest',
     status = 200,
-
   }: Props = $props();
 
   let loading = $state(true);
-  let marketItems = $state<Market[]>([]);
 
   onMount(async () => {
     if (itemId) {
@@ -53,12 +54,10 @@
         opts.inventory_status = inventoryStatus;
       }
 
-      const result = await getMarket(opts);
-
-      marketItems = result.data;
-
-      loading = false;
+      items = await getMarket(opts);
     }
+
+    loading = false;
   });
 </script>
 
@@ -70,23 +69,25 @@
           <Table.Cell class="font-medium">Loading...</Table.Cell>
         </Table.Row>
       {:else}
-        {#if marketItems.length > 0}
-          {#each marketItems as mi, i (i)}
+        {#if items && items.data && items.data.length > 0}
+          {#each items.data as item, i (i)}
             <Table.Row>
               <Table.Cell width="60px">
-                <Image key={mi.user.avatar} dimension="60x60" class="w-full" type="user" />
+                <a href={`/profiles/${item.user.steam_id}`}>
+                  <Image key={item.user.avatar} dimension="60x60" class="w-full" type="user" />
+                </a>
               </Table.Cell>
               <Table.Cell>
-                <div class="">
-                  <h3 class="font-medium text-lg">{mi.user.name}</h3>
-                </div>
-                <p class="text-muted-foreground">Posted <DateTime value={mi.created_at} /></p>
+                <a href={`/profiles/${item.user.steam_id}`}>
+                  <h3 class="font-medium text-lg">{item.user.name}</h3>
+                  <p class="text-muted-foreground">Posted <DateTime value={item.created_at} /></p>
+                </a>
               </Table.Cell>
               <Table.Cell class="w-3">
-                <Price class="font-medium text-green-900" value={mi.price} />
+                <Price class="font-medium text-green-600" value={item.price} />
               </Table.Cell>
               <Table.Cell class="w-4">
-                <Button>Contact seller</Button>
+                <ProfileContact profile={item.user} />
               </Table.Cell>
             </Table.Row>
           {/each}

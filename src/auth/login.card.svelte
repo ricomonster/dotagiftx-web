@@ -8,6 +8,13 @@
   import { Button } from '$lib/components/ui/button';
   import * as Alert from '$lib/components/ui/alert';
   import * as Card from '$lib/components/ui/card';
+
+  let benefits = [
+    'Post items',
+    'Track reservations',
+    'Record sales history',
+    'Place buy order'
+  ];
 </script>
 
 <div class="space-y-6">
@@ -15,11 +22,10 @@
     <Card.Content class="grid p-0 md:grid-cols-2">
       <div class="p-4">
         <h2 class="font-medium text-xl mb-2">Signing in to DotagiftX allows you to access additional features.</h2>
-        <ul>
-          <li class="flex flex-row py-1"><Check class="text-green-500 mr-1" /> Post items</li>
-          <li class="flex flex-row py-1"><Check class="text-green-500 mr-1" /> Track reservations</li>
-          <li class="flex flex-row py-1"><Check class="text-green-500 mr-1" /> Record sales history</li>
-          <li class="flex flex-row py-1"><Check class="text-green-500 mr-1" /> Place buy order</li>
+        <ul class="py-2">
+          {#each benefits as benefit, i (i)}
+            <li class="flex flex-row py-1"><Check class="text-green-500 mr-1" /> {benefit}</li>
+          {/each}
         </ul>
       </div>
       <div class="p-4">

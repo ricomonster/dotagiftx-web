@@ -37,6 +37,7 @@
   <img
     alt={key}
     class:hidden={!loaded}
+    class="w-full"
     draggable="false"
     oncontextmenu={(event) => event.preventDefault()}
     onload={() => (loaded = true)}

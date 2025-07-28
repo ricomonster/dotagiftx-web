@@ -14,7 +14,7 @@
   let { catalog, class: className, sort, vertical = false }: Props = $props();
 
   // Packages
-  import { Image, Price } from '$package/shared';
+  import { DateTime, Image, Price } from '$package/shared';
 
   import RarityBadge from './rarity.svelte';
 </script>
@@ -38,15 +38,33 @@
       </p>
     </div>
 
-    {#if sort === 'trending'}
-      <div class={cn('text-right md:text-right', vertical && 'text-left md:text-right', 'flex-1')}>
-        <p class="font-medium text-green-900">
+    <div class={cn('text-right md:text-right', vertical && 'text-left md:text-right', 'flex-1')}>
+      {#if sort === 'recent'}
+        <p class="font-medium text-green-600">
+          <Price value={catalog.lowest_ask} />
+        </p>
+        <p class="text-sm font-medium text-muted-foreground">
+          listed <DateTime value={catalog.recent_ask} />
+        </p>
+      {/if}
+
+      {#if sort === 'recent-bid'}
+        <p class="font-medium text-green-600">
+          <Price value={catalog.highest_bid} />
+        </p>
+        <p class="text-sm font-medium text-muted-foreground">
+          bought <DateTime value={catalog.recent_bid} />
+        </p>
+      {/if}
+
+      {#if sort === 'trending'}
+        <p class="font-medium text-green-600">
           <Price value={catalog.lowest_ask} />
         </p>
         <p class="text-sm font-medium text-muted-foreground">
           {catalog.quantity} listings
         </p>
-      </div>
-    {/if}
+      {/if}
+    </div>
   </div>
 </article>

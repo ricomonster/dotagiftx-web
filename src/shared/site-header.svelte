@@ -7,6 +7,7 @@
 
   // Icon
   import SteamIcon from './steam-icon.svelte';
+  import ToggleMode from './toggle-mode.svelte';
 </script>
 
 <header class="sticky top-0 z-200 bg-white dark:bg-black border-b">
@@ -34,18 +35,22 @@
 
       <div>
         <NavigationMenu.Root>
-          <NavigationMenu.List>
+          <NavigationMenu.List class="gap-2">
             <NavigationMenu.Item>
               <NavigationMenu.Link>
                 {#snippet child()}
-                  <Button href="/post" variant="outline" size="sm">Post Item</Button>
+                  <Button href="/post">Post Item</Button>
                 {/snippet}
               </NavigationMenu.Link>
             </NavigationMenu.Item>
 
             <NavigationMenu.Item>
-              <NavigationMenu.Link href="/login" class="flex-row items-center">
-                <SteamIcon /> Sign in
+              <NavigationMenu.Link>
+                {#snippet child()}
+                  <Button href="/login" variant="outline" class="flex-row items-center">
+                    <SteamIcon /> Sign in
+                  </Button>
+                {/snippet}
               </NavigationMenu.Link>
             </NavigationMenu.Item>
 
@@ -75,6 +80,14 @@
                   </li>
                 </ul>
               </NavigationMenu.Content>
+            </NavigationMenu.Item>
+
+            <NavigationMenu.Item>
+              <NavigationMenu.Link>
+                {#snippet child()}
+                  <ToggleMode />
+                {/snippet}
+              </NavigationMenu.Link>
             </NavigationMenu.Item>
           </NavigationMenu.List>
         </NavigationMenu.Root>
