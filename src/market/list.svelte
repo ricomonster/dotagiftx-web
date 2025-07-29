@@ -41,7 +41,7 @@
   let loading = $state(true);
 
   onMount(async () => {
-    if (itemId) {
+    if (itemId && (!items || items.length === 0)) {
       let opts: MarketOptions = {
         index: 'item_id',
         item_id: itemId,

@@ -1,6 +1,6 @@
 <script lang="ts" module>
   // Interfaces
-  import type { Catalog, DotagiftxList, Item, Market } from '$package/dotagiftx';
+  import type { Catalog, DotagiftxList, Item } from '$package/dotagiftx';
 
   interface Props {
     catalog: Catalog
@@ -28,14 +28,19 @@
     <Card.Content>
       <Tabs.Content value="offers">
         <MarketList
-          inventoryStatus={200}
           itemId={catalog.id}
           items={catalog.asks}
           sort="lowest"
           type={10} />
       </Tabs.Content>
 
-      <Tabs.Content value="orders">Orders</Tabs.Content>
+      <Tabs.Content value="orders">
+        <MarketList
+          itemId={catalog.id}
+          sort="highest"
+          type={20} />
+      </Tabs.Content>
+
       <Tabs.Content value="activities">Activities</Tabs.Content>
     </Card.Content>
   </Card.Root>

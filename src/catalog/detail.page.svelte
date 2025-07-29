@@ -41,14 +41,14 @@
           <h1 class="font-bold text-4xl mb-2">{catalog.name}</h1>
 
           <div class="flex flex-row items-center space-x-3">
-            <a href={`/search?origin=${catalog.origin}`} class="font-medium text-xl">{catalog.origin}</a>
+            <a href={`/search?origin=${catalog.origin}`} class="font-medium text-2xl">{catalog.origin}</a>
 
             {#if !['regular'].includes(catalog.rarity)}
               <RarityBadge rarity={catalog.rarity} />
             {/if}
           </div>
 
-          <p class="text-muted-foreground text-lg mb-1">
+          <p class="text-muted-foreground text-xl mb-1">
             <a href={`/search?hero=${catalog.hero}`}>{catalog.hero}</a>
           </p>
 
