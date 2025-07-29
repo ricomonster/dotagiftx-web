@@ -36,27 +36,29 @@
     </div>
 
     <div class="lg:col-span-3">
-      <div class="grid grid-cols-6 py-6 gap-4">
-        <div class="col-span-4">
-          <h1 class="font-bold text-4xl">{catalog.name}</h1>
-          <div class="mt-1">
-            <p class="text-xl flex flex-row catalogs-center space-x-2 font-medium">
-              <a href={`/search?origin=${catalog.origin}`}>{catalog.origin}</a>
-              {#if !['regular'].includes(catalog.rarity)}
-                <RarityBadge rarity={catalog.rarity} />
-              {/if}
-            </p>
-            <p class="text-muted-foreground text-lg mb-1">
-              <a href={`/search?hero=${catalog.hero}`}>{catalog.hero}</a>
-            </p>
-            <a
-              class={badgeVariants({ variant: 'outline' })}
-              href={`https://liquipedia.net/dota2/${catalog.name.replace(' ', '_')}`}
-              target="_blank"
-            >
-              Dota 2 Wiki
-            </a>
+      <div class="grid grid-cols-5 gap-4 py-6">
+        <div class="col-span-3">
+          <h1 class="font-bold text-4xl mb-2">{catalog.name}</h1>
+
+          <div class="flex flex-row items-center space-x-3">
+            <a href={`/search?origin=${catalog.origin}`} class="font-medium text-xl">{catalog.origin}</a>
+
+            {#if !['regular'].includes(catalog.rarity)}
+              <RarityBadge rarity={catalog.rarity} />
+            {/if}
           </div>
+
+          <p class="text-muted-foreground text-lg mb-1">
+            <a href={`/search?hero=${catalog.hero}`}>{catalog.hero}</a>
+          </p>
+
+          <a
+            class={badgeVariants({ variant: 'outline' })}
+            href={`https://liquipedia.net/dota2/${catalog.name.replaceAll(' ', '_')}`}
+            target="_blank"
+          >
+            Dota 2 Wiki
+          </a>
         </div>
 
         <Card.Root class="col-span-1">

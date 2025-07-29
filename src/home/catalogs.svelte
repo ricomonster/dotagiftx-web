@@ -7,8 +7,8 @@
   import { CatalogList } from '$package/catalog';
 </script>
 
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-  <Card.Root class="lg:col-span-2">
+<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+  <Card.Root class="lg:col-span-2 xl:col-span-1">
     <Card.Header>
       <h3 class="font-medium text-xl">Trending items</h3>
     </Card.Header>

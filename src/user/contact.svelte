@@ -21,7 +21,7 @@
   <Dialog.Trigger class={buttonVariants({ variant: 'outline' })}>
     Contact seller
   </Dialog.Trigger>
-  <Dialog.Content class="!max-w-4xl translate-y-0">
+  <Dialog.Content class="!max-w-4xl translate-y-0 top-[15%]">
     <Dialog.Header>
       <Dialog.Title>Contact Seller</Dialog.Title>
     </Dialog.Header>

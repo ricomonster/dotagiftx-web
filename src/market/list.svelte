@@ -18,7 +18,7 @@
 
   // Packages
   import { DateTime, Image, Price } from '$package/shared';
-  import { ProfileContact } from '$package/user';
+  import { BoonBadge, ProfileContact } from '$package/user';
 
   // Lib
   import * as Table from '$lib/components/ui/table';
@@ -80,7 +80,19 @@
               </Table.Cell>
               <Table.Cell>
                 <a href={`/profiles/${item.user.steam_id}`}>
-                  <h3 class="font-medium text-lg">{item.user.name}</h3>
+                  <div class="flex flex-row items-center space-x-2">
+                    <h3 class="font-medium text-lg">{item.user.name}</h3>
+
+                    {#if item.user.boons && item.user.boons.length > 0}
+                      {#if item.user.boons.includes('PARTNER_BADGE')}
+                        <BoonBadge class="text-xs" boon="PARTNER_BADGE" />
+                      {/if}
+                      {#if item.user.boons.includes('TRADER_BADGE')}
+                        <BoonBadge class="text-xs" boon="TRADER_BADGE" />
+                      {/if}
+                    {/if}
+                  </div>
+
                   <p class="text-muted-foreground">Posted <DateTime value={item.created_at} /></p>
                 </a>
               </Table.Cell>
