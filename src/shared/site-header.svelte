@@ -7,10 +7,9 @@
 
   // Icon
   import SteamIcon from './steam-icon.svelte';
-  import ToggleMode from './toggle-mode.svelte';
 </script>
 
-<header class="sticky top-0 z-200 bg-white dark:bg-black border-b">
+<header class="sticky top-0 z-200 bg-header border-b">
   <div class="max-w-auto mx-auto flex h-16 items-center gap-2 px-4">
     <a href="/" aria-label="DotagiftX">
       <img src="/brand_1x.png" alt="DotagiftX"/>
@@ -21,7 +20,7 @@
         <NavigationMenu.List>
 
           <NavigationMenu.Item>
-            <NavigationMenu.Link>Treasures</NavigationMenu.Link>
+            <NavigationMenu.Link class="text-white">Treasures</NavigationMenu.Link>
           </NavigationMenu.Item>
 
           <NavigationMenu.Item>
@@ -80,14 +79,6 @@
                   </li>
                 </ul>
               </NavigationMenu.Content>
-            </NavigationMenu.Item>
-
-            <NavigationMenu.Item>
-              <NavigationMenu.Link>
-                {#snippet child()}
-                  <ToggleMode />
-                {/snippet}
-              </NavigationMenu.Link>
             </NavigationMenu.Item>
           </NavigationMenu.List>
         </NavigationMenu.Root>
