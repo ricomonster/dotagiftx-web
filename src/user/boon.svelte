@@ -28,11 +28,11 @@
 
   switch (boon) {
     case 'PARTNER_BADGE':
-      className = cn('bg-yellow-600 text-white', className);
+      className = cn('bg-[var(--gold)] text-white', className);
       break;
 
     case 'TRADER_BADGE':
-      className = cn('bg-sky-300 text-white', className);
+      className = cn('bg-[var(--sky-blue)] text-white', className);
       break;
   }
 </script>

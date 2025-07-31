@@ -34,7 +34,7 @@
   });
 </script>
 
-<section class={cn('catalog-list', className)}>
+<section class={cn('catalog-list', className, sort === 'trending' ? 'grid lg:grid-cols-2 xl:grid-cols-1 gap-x-8' : '')}>
   {#if loading}
     <div class="space-y-4">
       {#each {length: limit} as _, i (i)}

@@ -9,7 +9,7 @@
   import SteamIcon from './steam-icon.svelte';
 </script>
 
-<header class="sticky top-0 z-200 bg-header border-b">
+<header class="sticky top-0 z-200 bg-[var(--header-bg-color)] border-b">
   <div class="max-w-auto mx-auto flex h-16 items-center gap-2 px-4">
     <a href="/" aria-label="DotagiftX">
       <img src="/brand_1x.png" alt="DotagiftX"/>
@@ -38,7 +38,7 @@
             <NavigationMenu.Item>
               <NavigationMenu.Link>
                 {#snippet child()}
-                  <Button href="/post">Post Item</Button>
+                  <Button href="/post" variant="outline" class="gold-button !bg-[var(--header-bg-color)]">Post Item</Button>
                 {/snippet}
               </NavigationMenu.Link>
             </NavigationMenu.Item>

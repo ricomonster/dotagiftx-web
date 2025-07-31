@@ -14,9 +14,7 @@
   import { Image } from '$package/shared';
 
   // Lib
-  import * as Card from '$lib/components/ui/card';
   import { Button } from '$lib/components/ui/button';
-  import { badgeVariants } from '$lib/components/ui/badge';
 
   import Tabs from './tabs.svelte';
 
@@ -30,66 +28,44 @@
 </svelte:head>
 
 <section class="catalog-page container mx-auto py-8">
-  <div class="grid lg:grid-cols-5 gap-8">
-    <div class="lg:col-span-2">
-      <Image key={catalog.slug} dimension="600x400" class="mx-auto w-full" type="item" />
+  <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-4 px-4">
+    <div class="lg:col-span-1">
+      <Image
+        key={catalog.slug}
+        dimension="600x400"
+        class="mx-auto w-full"
+        type="item" />
     </div>
-
-    <div class="lg:col-span-3">
-      <div class="grid grid-cols-5 gap-4 py-6">
-        <div class="col-span-3">
+    <div class="lg:col-span-1 xl:col-span-2 space-y-6">
+      <header>
+        <div class="space-y-2 mb-2">
           <h1 class="font-bold text-4xl mb-2">{catalog.name}</h1>
 
-          <div class="flex flex-row items-center space-x-3">
+          <div class="space-x-4 flex flex-row items-center">
             <a href={`/search?origin=${catalog.origin}`} class="font-medium text-2xl">{catalog.origin}</a>
 
             {#if !['regular'].includes(catalog.rarity)}
               <RarityBadge rarity={catalog.rarity} />
             {/if}
           </div>
-
-          <p class="text-muted-foreground text-xl mb-1">
-            <a href={`/search?hero=${catalog.hero}`}>{catalog.hero}</a>
-          </p>
-
-          <a
-            class={badgeVariants({ variant: 'outline' })}
-            href={`https://liquipedia.net/dota2/${catalog.name.replaceAll(' ', '_')}`}
-            target="_blank"
-          >
-            Dota 2 Wiki
-          </a>
         </div>
 
-        <Card.Root class="col-span-1">
-          <Card.Header>
-            <Card.Description>Reserved</Card.Description>
-            <Card.Title class="text-2xl font-semibold tabular-nums">
-              {catalog.reserved_count}
-            </Card.Title>
-          </Card.Header>
-        </Card.Root>
+        <p class="text-xl">
+          <span class="text-muted-foreground">Used by:</span> <a href={`/search?hero=${catalog.hero}`}>{catalog.hero}</a>
+        </p>
+      </header>
 
-        <Card.Root class="col-span-1">
-          <Card.Header>
-            <Card.Description>Delivered</Card.Description>
-            <Card.Title class="text-2xl font-semibold tabular-nums">
-              {catalog.sold_count}
-            </Card.Title>
-          </Card.Header>
-        </Card.Root>
-      </div>
-
-      <div class="grid grid-cols-2 gap-4 mb-6">
+      <div class="grid grid-cols-2 gap-4">
         <Button
           href={`/post?s=${catalog.slug}`}
-          variant="default"
+          variant="outline"
+          class="gold-button"
           size="lg"
         >
           Post this item
         </Button>
 
-        <Button variant="secondary" size="lg">
+        <Button variant="outline" class="skyblue-button" size="lg">
           Place buy order
         </Button>
       </div>

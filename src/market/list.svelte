@@ -72,7 +72,7 @@
       {:else}
         {#if items && items.length > 0}
           {#each items as item, i (i)}
-            <Table.Row>
+            <Table.Row class="border-0">
               <Table.Cell width="60px">
                 <a href={`/profiles/${item.user.steam_id}`}>
                   <Image key={item.user.avatar} dimension="60x60" class="w-full" type="user" />
