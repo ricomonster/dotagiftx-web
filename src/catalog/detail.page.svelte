@@ -28,7 +28,7 @@
 </svelte:head>
 
 <section class="catalog-page container mx-auto py-8">
-  <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-4 px-4">
+  <div class="grid lg:grid-cols-2 2xl:grid-cols-3 gap-x-10 gap-y-4 px-4">
     <div class="lg:col-span-1">
       <Image
         key={catalog.slug}
@@ -36,7 +36,7 @@
         class="mx-auto w-full"
         type="item" />
     </div>
-    <div class="lg:col-span-1 xl:col-span-2 space-y-6">
+    <div class="lg:col-span-1 2xl:col-span-2 space-y-6">
       <header>
         <div class="space-y-2 mb-2">
           <h1 class="font-bold text-4xl mb-2">{catalog.name}</h1>

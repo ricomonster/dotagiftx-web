@@ -1,6 +1,7 @@
 export * from './auth';
 export * from './catalog';
 export * from './config';
+export * from './hero';
 export * from './item';
 export * from './market';
 export * from './stat';
