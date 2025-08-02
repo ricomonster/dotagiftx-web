@@ -10,6 +10,7 @@ import { send } from './client';
 
 // Config
 import { PATHS } from './config';
+import type { Hero } from './hero';
 
 export interface Market {
   id: string;
@@ -57,18 +58,22 @@ export interface MarketStats {
   sold: number;
 }
 
-export type MarketIndex = 'user_id' | 'item_id';
+export type MarketIndex = 'user_id' | 'item_id' | 'hero';
 export type MarketSort = 'highest' | 'recent' | 'best' | 'lowest'
+export type MarketType = 10 | 20;
+export type MarketTypeName = 'ask' | 'bid'
 
 export interface MarketOptions {
   index: MarketIndex;
+  hero?: Hero;
   inventory_status?: number;
   item_id?: string;
   nocache?: boolean;
   sort?: MarketSort
   status?: number;
-  type?: number;
+  type?: MarketType;
   user_id?: string;
+  limit?: number;
 }
 
 /**

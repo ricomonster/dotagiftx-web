@@ -1,6 +1,6 @@
 <script lang="ts" module>
   // Interfaces
-  import type { Catalog, DotagiftxList, Item } from '$package/dotagiftx';
+  import type { MarketType, Catalog, DotagiftxList } from '$package/dotagiftx';
 
   interface Props {
     catalog: Catalog

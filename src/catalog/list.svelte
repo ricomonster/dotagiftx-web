@@ -27,7 +27,8 @@
   onMount(async () => {
     if (!catalogs || catalogs.length === 0) {
       // Get the catalog
-      catalogs = await getCatalogs({ sort, limit });
+      const result = await getCatalogs({ sort, limit });
+      catalogs = result.data;
     }
 
     loading = false;

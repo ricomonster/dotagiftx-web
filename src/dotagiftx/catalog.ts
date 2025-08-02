@@ -37,6 +37,7 @@ export interface GetCatalogOpts {
   page?: number;
   q?: string;
   sort?: CatalogSort;
+  index?: 'hero';
 }
 
 
@@ -65,6 +66,7 @@ export const getCatalogs = (opts: GetCatalogOpts): Promise<Result<DotagiftxList<
   }
 
   const query = qs.stringify(opts);
+  console.log('query', query);
   if (query) {
     path += `?${query}`;
   }

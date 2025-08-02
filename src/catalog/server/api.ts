@@ -1,6 +1,6 @@
 // Interfaces
 import type { RequestHandler } from '$routes/api/catalogs/$types';
-import type { CatalogSort, GetCatalogOpts } from '$package/dotagiftx';
+import type { CatalogSort, GetCatalogOpts, Hero } from '$package/dotagiftx';
 
 // Modules
 import { getCatalogs } from '$package/dotagiftx';
@@ -9,10 +9,13 @@ import { getCatalogs } from '$package/dotagiftx';
  * GET /api/catalog
  */
 export const GET: RequestHandler = async ({ url }) => {
+  const hero  = url.searchParams.get('hero');
   const limit  = url.searchParams.get('limit');
   const page  = url.searchParams.get('page');
   const q  = url.searchParams.get('q');
   const sort  = url.searchParams.get('sort');
+
+  console.log(url.searchParams.keys());
 
   const opts: GetCatalogOpts = {};
   if (limit) {
@@ -31,6 +34,11 @@ export const GET: RequestHandler = async ({ url }) => {
     opts.sort = sort as CatalogSort;
   }
 
+  if (hero) {
+    opts.hero = hero as Hero;
+  }
+
+  console.log(opts);
 
   const result = await getCatalogs(opts);
   if (result.isOk()) {

@@ -4,7 +4,7 @@ import qs from 'qs';
 import type { Catalog, GetCatalogOpts } from '$package/dotagiftx';
 import type { DotagiftxList } from '$package/dotagiftx';
 
-export const getCatalogs = async (opts: GetCatalogOpts): Promise<Catalog[]> => {
+export const getCatalogs = async (opts: GetCatalogOpts): Promise<DotagiftxList<Catalog[]>> => {
   let url = '/api/catalogs';
   if (Object.keys(opts).length !== 0) {
     url += `?${qs.stringify(opts)}`;
@@ -13,7 +13,7 @@ export const getCatalogs = async (opts: GetCatalogOpts): Promise<Catalog[]> => {
   const response = await fetch(url);
   if (response.ok) {
     const json = await response.json() as DotagiftxList<Catalog[]>;
-    return json.data;
+    return json;
   }
 
   const error = await response.json() as { message: string };

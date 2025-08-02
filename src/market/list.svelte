@@ -1,10 +1,17 @@
 <script lang="ts" module>
   // Interfaces
-  import type { Market, MarketOptions, MarketSort, MarketIndex } from '$package/dotagiftx';
+  import type {
+    Market,
+    MarketOptions,
+    MarketSort,
+    MarketIndex,
+    MarketType,
+    Hero
+  } from '$package/dotagiftx';
 
   interface Props {
     index: MarketIndex;
-    type: number;
+    type: MarketType;
     class?: string;
     inventoryStatus?: number;
     itemId?: string;
@@ -12,6 +19,7 @@
     sort?: MarketSort;
     status?: number;
     userId?: string;
+    hero?: Hero
   }
 </script>
 
@@ -40,6 +48,7 @@
     status = 200,
     type,
     userId,
+    hero,
   }: Props = $props();
 
   let loading = $state(true);
@@ -59,6 +68,10 @@
 
       if (index === 'user_id') {
         opts.user_id = userId;
+      }
+
+      if (index === 'hero') {
+        opts.hero = hero;
       }
 
       if (inventoryStatus) {
@@ -84,27 +97,30 @@
         {#if items && items.length > 0}
           {#each items as item, i (i)}
             <Table.Row class="border-0">
-              <Table.Cell width="60px">
-                <a href={`/profiles/${item.user.steam_id}`}>
-                  <Image key={item.user.avatar} dimension="60x60" class="w-full" type="user" />
-                </a>
-              </Table.Cell>
               <Table.Cell>
-                <a href={`/profiles/${item.user.steam_id}`}>
-                  <div class="flex flex-row items-center space-x-2">
-                    <h3 class="font-medium text-lg">{item.user.name}</h3>
+                <a href={`/profiles/${item.user.steam_id}`} class="flex flex-row items-start gap-2">
+                  <Image
+                    key={item.user.avatar}
+                    dimension="60x60"
+                    class="!w-16"
+                    type="user" />
 
-                    {#if item.user.boons && item.user.boons.length > 0}
-                      {#if item.user.boons.includes('PARTNER_BADGE')}
-                        <BoonBadge class="text-xs" boon="PARTNER_BADGE" />
+                  <div>
+                    <div class="flex flex-row items-center space-x-2">
+                      <h3 class="font-medium text-lg">{item.user.name}</h3>
+
+                      {#if item.user.boons && item.user.boons.length > 0}
+                        {#if item.user.boons.includes('PARTNER_BADGE')}
+                          <BoonBadge class="text-xs" boon="PARTNER_BADGE" />
+                        {/if}
+                        {#if item.user.boons.includes('TRADER_BADGE')}
+                          <BoonBadge class="text-xs" boon="TRADER_BADGE" />
+                        {/if}
                       {/if}
-                      {#if item.user.boons.includes('TRADER_BADGE')}
-                        <BoonBadge class="text-xs" boon="TRADER_BADGE" />
-                      {/if}
-                    {/if}
+                    </div>
+
+                    <p class="text-muted-foreground">Posted <DateTime value={item.created_at} /></p>
                   </div>
-
-                  <p class="text-muted-foreground">Posted <DateTime value={item.created_at} /></p>
                 </a>
               </Table.Cell>
               <Table.Cell class="w-3">

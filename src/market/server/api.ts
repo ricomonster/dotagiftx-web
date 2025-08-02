@@ -1,17 +1,25 @@
 // Interfaces
 import type { RequestHandler } from '$routes/api/markets/$types';
-import type { MarketIndex, MarketOptions, MarketSort } from '$package/dotagiftx';
+import type {
+  Hero,
+  MarketIndex,
+  MarketOptions,
+  MarketSort,
+  MarketType
+} from '$package/dotagiftx';
 
 // Modules
-import { getMarket } from '$package/dotagiftx';
+import { getMarket} from '$package/dotagiftx';
 
 /**
  * GET /api/markets
  */
 export const GET: RequestHandler = async ({ url }) => {
+  const hero  = url.searchParams.get('hero');
   const index  = url.searchParams.get('index');
   const inventoryStatus  = url.searchParams.get('inventory_status');
   const itemId  = url.searchParams.get('item_id');
+  const limit = url.searchParams.get('limit');
   const nocache  = url.searchParams.get('nocache');
   const sort  = url.searchParams.get('sort');
   const status  = url.searchParams.get('status');
@@ -44,11 +52,19 @@ export const GET: RequestHandler = async ({ url }) => {
   }
 
   if (type) {
-    opts.type = parseInt(type, 10);
+    opts.type = parseInt(type, 10) as MarketType;
   }
 
   if (userId && index === 'user_id') {
     opts.user_id = userId;
+  }
+
+  if (hero && index === 'hero') {
+    opts.hero = hero as Hero;
+  }
+
+  if (limit) {
+    opts.limit = parseInt(limit, 10);
   }
 
   const result = await getMarket(opts);

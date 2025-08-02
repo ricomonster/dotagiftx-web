@@ -16,6 +16,7 @@
   // Lib
   import { Button } from '$lib/components/ui/button';
 
+  import Related from './related.svelte';
   import Tabs from './tabs.svelte';
 
   let { data }: Props = $props();
@@ -28,17 +29,19 @@
 </svelte:head>
 
 <section class="catalog-page container mx-auto py-8">
-  <div class="grid lg:grid-cols-2 2xl:grid-cols-3 gap-x-10 gap-y-4 px-4">
-    <div class="lg:col-span-1">
+  <div class="grid lg:grid-cols-2 3xl:grid-cols-3 gap-x-10 gap-y-4 px-4">
+    <div class="lg:col-span-1 space-y-8">
       <Image
         key={catalog.slug}
         dimension="600x400"
         class="mx-auto w-full"
         type="item" />
+
+      <Related {catalog} />
     </div>
-    <div class="lg:col-span-1 2xl:col-span-2 space-y-6">
-      <header>
-        <div class="space-y-2 mb-2">
+    <div class="lg:col-span-1 3xl:col-span-2 space-y-6">
+      <header class="space-y-2">
+        <div class="space-y-2">
           <h1 class="font-bold text-4xl mb-2">{catalog.name}</h1>
 
           <div class="space-x-4 flex flex-row items-center">

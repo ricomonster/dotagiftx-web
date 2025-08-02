@@ -137,7 +137,7 @@ export interface HeroAssets {
 /**
  * Fetches the hero assets
  *
- * @param {string} Hero
+ * @param {Hero} hero 
  * @returns {HeroAssets}
  */
 export const getHero = (hero: Hero): HeroAssets => {

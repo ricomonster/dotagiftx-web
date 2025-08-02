@@ -1,4 +1,5 @@
 // Interfaces
+import type { Hero } from './hero';
 import type { Result } from './types';
 
 // Client
@@ -13,7 +14,7 @@ export interface Item {
   id: string;
   slug: string;
   name: string;
-  hero: string;
+  hero: Hero;
   image: string;
   origin: string;
   rarity: Rarity;
