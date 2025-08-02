@@ -37,4 +37,6 @@
   }
 </script>
 
-<Badge {variant} class={className}>{BOON_MAPPING[boon]}</Badge>
+<a href="/plus">
+  <Badge {variant} class={className}>{BOON_MAPPING[boon]}</Badge>
+</a>

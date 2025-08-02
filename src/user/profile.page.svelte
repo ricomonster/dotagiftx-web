@@ -9,7 +9,8 @@
 </script>
 
 <script lang="ts">
-  import Profile from './profile.svelte';
+  import ProfileCard from './card.svelte';
+  import ProfileTabs from './tabs.svelte';
 
   let { data }: Props = $props();
   let profile = data.profile as User;
@@ -20,5 +21,12 @@
 </svelte:head>
 
 <section class="profile-page container mx-auto p-4">
-  <Profile {profile} view="page" />
+  <div class="grid gap-4 xl:grid-cols-2 2xl:grid-cols-3">
+    <div class="col-span-1">
+      <ProfileCard {profile} />
+    </div>
+    <div class="col-span-1 2xl:col-span-2">
+      <ProfileTabs />
+    </div>
+  </div>
 </section>

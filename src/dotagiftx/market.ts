@@ -57,16 +57,18 @@ export interface MarketStats {
   sold: number;
 }
 
+export type MarketIndex = 'user_id' | 'item_id';
 export type MarketSort = 'highest' | 'recent' | 'best' | 'lowest'
 
 export interface MarketOptions {
-  index?: string;
+  index: MarketIndex;
   inventory_status?: number;
   item_id?: string;
   nocache?: boolean;
   sort?: MarketSort
   status?: number;
   type?: number;
+  user_id?: string;
 }
 
 /**

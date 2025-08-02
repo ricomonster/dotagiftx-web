@@ -1,15 +1,17 @@
 <script lang="ts" module>
   // Interfaces
-  import type { Market, MarketOptions, MarketSort } from '$package/dotagiftx';
+  import type { Market, MarketOptions, MarketSort, MarketIndex } from '$package/dotagiftx';
 
   interface Props {
-    itemId: string;
+    index: MarketIndex;
     type: number;
     class?: string;
     inventoryStatus?: number;
+    itemId?: string;
     items?: Market[];
     sort?: MarketSort;
     status?: number;
+    userId?: string;
   }
 </script>
 
@@ -29,13 +31,15 @@
   import { getMarket } from './client';
 
   let {
-    itemId,
-    type,
     class: className,
+    index,
     inventoryStatus,
+    itemId,
     items,
     sort = 'lowest',
     status = 200,
+    type,
+    userId,
   }: Props = $props();
 
   let loading = $state(true);
@@ -43,12 +47,19 @@
   onMount(async () => {
     if (itemId && (!items || items.length === 0)) {
       let opts: MarketOptions = {
-        index: 'item_id',
-        item_id: itemId,
+        index,
         sort,
         status,
         type,
       };
+
+      if (index === 'item_id') {
+        opts.item_id = itemId;
+      }
+
+      if (index === 'user_id') {
+        opts.user_id = userId;
+      }
 
       if (inventoryStatus) {
         opts.inventory_status = inventoryStatus;

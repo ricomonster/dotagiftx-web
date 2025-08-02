@@ -12,7 +12,7 @@
   import * as Dialog from '$lib/components/ui/dialog';
   import { Button, buttonVariants } from '$lib/components/ui/button';
 
-  import Profile from './profile.svelte';
+  import ProfileCard from './card.svelte';
 
   let { profile }: Props = $props();
 </script>
@@ -27,7 +27,7 @@
     </Dialog.Header>
 
     <div class="py-4">
-      <Profile {profile} view="contact" />
+      <ProfileCard {profile} />
     </div>
 
     <Dialog.Footer>

@@ -28,6 +28,7 @@
     <Card.Content>
       <Tabs.Content value="offers">
         <MarketList
+          index="item_id"
           itemId={catalog.id}
           items={catalog.asks}
           sort="lowest"
@@ -36,6 +37,7 @@
 
       <Tabs.Content value="orders">
         <MarketList
+          index="item_id"
           itemId={catalog.id}
           sort="highest"
           type={20} />

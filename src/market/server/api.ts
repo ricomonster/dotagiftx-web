@@ -1,6 +1,6 @@
 // Interfaces
 import type { RequestHandler } from '$routes/api/markets/$types';
-import type { MarketOptions, MarketSort } from '$package/dotagiftx';
+import type { MarketIndex, MarketOptions, MarketSort } from '$package/dotagiftx';
 
 // Modules
 import { getMarket } from '$package/dotagiftx';
@@ -16,17 +16,18 @@ export const GET: RequestHandler = async ({ url }) => {
   const sort  = url.searchParams.get('sort');
   const status  = url.searchParams.get('status');
   const type  = url.searchParams.get('type');
+  const userId  = url.searchParams.get('user_id');
 
-  const opts: MarketOptions = {};
+  const opts: MarketOptions = { index: 'item_id' };
   if (index) {
-    opts.index = index;
+    opts.index = index as MarketIndex;
   }
 
   if (inventoryStatus) {
     opts.inventory_status = parseInt(inventoryStatus, 10);
   }
 
-  if (itemId) {
+  if (itemId && index === 'item_id') {
     opts.item_id = itemId;
   }
 
@@ -44,6 +45,10 @@ export const GET: RequestHandler = async ({ url }) => {
 
   if (type) {
     opts.type = parseInt(type, 10);
+  }
+
+  if (userId && index === 'user_id') {
+    opts.user_id = userId;
   }
 
   const result = await getMarket(opts);
