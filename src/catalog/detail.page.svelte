@@ -39,8 +39,9 @@
 
       <Related {catalog} />
     </div>
+
     <div class="lg:col-span-1 3xl:col-span-2 space-y-6">
-      <header class="space-y-2">
+      <header class="space-y-2 hidden">
         <div class="space-y-2">
           <h1 class="font-bold text-4xl mb-2">{catalog.name}</h1>
 

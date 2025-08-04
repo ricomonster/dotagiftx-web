@@ -1,16 +1,19 @@
 <script lang="ts" module>
   // Interfaces
-  import type { Catalog, DotagiftxList, Item } from '$package/dotagiftx';
+  import type { Catalog, DotagiftxList, Item, User } from '$package/dotagiftx';
 
-  interface Props {}
+  interface Props {
+    profile: User
+  }
 </script>
 <script lang="ts">
   // Packages
+  import { MarketList } from '$package/market';
   // Lib
   import * as Card from '$lib/components/ui/card';
   import * as Tabs from '$lib/components/ui/tabs';
 
-  let {}: Props = $props();
+  let { profile }: Props = $props();
 </script>
 
 <Tabs.Root value="listing" class="w-full justify-between">
@@ -25,6 +28,10 @@
   <Card.Root>
     <Card.Content>
       <Tabs.Content value="listing">
+        <MarketList
+          index="user_id"
+          userId={profile.id}
+          type={10} />
       </Tabs.Content>
     </Card.Content>
   </Card.Root>

@@ -25,7 +25,7 @@
   </Tabs.List>
 
   <Card.Root>
-    <Card.Content>
+    <Card.Content class="px-2 py-0">
       <Tabs.Content value="offers">
         <MarketList
           index="item_id"

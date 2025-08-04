@@ -32,8 +32,9 @@
 
   // Lib
   import * as Table from '$lib/components/ui/table';
-  // import { Button } from '$lib/components/ui/button';
   import { cn } from '$lib/utils';
+
+  import ProfileRow from './profile-row.svelte';
 
   // Client
   import { getMarket } from './client';
@@ -54,7 +55,7 @@
   let loading = $state(true);
 
   onMount(async () => {
-    if (itemId && (!items || items.length === 0)) {
+    if ((itemId || userId) && (!items || items.length === 0)) {
       let opts: MarketOptions = {
         index,
         sort,
@@ -87,7 +88,16 @@
 </script>
 
 <div class={cn(className)}>
-  <Table.Root>
+  {#if loading}
+    <p class="p-8 text-center">Loading...</p>
+  {:else}
+    {#if items && items.length > 0}
+      {#each items as item, i (i)}
+        <ProfileRow {item} />
+      {/each}
+    {/if}
+  {/if}
+  <Table.Root class="hidden">
     <Table.Body>
       {#if loading}
         <Table.Row>
@@ -102,12 +112,12 @@
                   <Image
                     key={item.user.avatar}
                     dimension="60x60"
-                    class="!w-16"
+                    class="!w-10 !md:w-12"
                     type="user" />
 
                   <div>
                     <div class="flex flex-row items-center space-x-2">
-                      <h3 class="font-medium text-lg">{item.user.name}</h3>
+                      <h3 class="font-medium md:text-lg">{item.user.name}</h3>
 
                       {#if item.user.boons && item.user.boons.length > 0}
                         {#if item.user.boons.includes('PARTNER_BADGE')}
@@ -123,14 +133,16 @@
                   </div>
                 </a>
               </Table.Cell>
-              <Table.Cell class="w-3">
+              <Table.Cell>
                 <Price class="font-medium text-green-600" value={item.price} />
               </Table.Cell>
-              <Table.Cell class="w-4">
+              <Table.Cell class="w-4 hidden">
                 <ProfileContact profile={item.user} />
               </Table.Cell>
             </Table.Row>
           {/each}
+        {:else}
+          <p class="p-10 text-center">No results found...</p>
         {/if}
       {/if}
     </Table.Body>

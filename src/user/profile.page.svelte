@@ -25,8 +25,9 @@
     <div class="col-span-1">
       <ProfileCard {profile} />
     </div>
+
     <div class="col-span-1 2xl:col-span-2">
-      <ProfileTabs />
+      <ProfileTabs {profile} />
     </div>
   </div>
 </section>
