@@ -1,9 +1,13 @@
 <script lang="ts" module>
   // Interfaces
   import type { User } from '$package/dotagiftx';
+  import type { ButtonVariant } from '$lib/components/ui/button';
 
   interface Props {
-    profile: User
+    profile: User;
+    buttonText?: string;
+    class?: string;
+    variant?: ButtonVariant;
   }
 </script>
 
@@ -11,15 +15,21 @@
   // Lib
   import * as Dialog from '$lib/components/ui/dialog';
   import { Button, buttonVariants } from '$lib/components/ui/button';
+  import { cn } from '$lib/utils';
 
   import ProfileCard from './card.svelte';
 
-  let { profile }: Props = $props();
+  let {
+    class: className,
+    profile,
+    variant = 'outline',
+    buttonText = 'Contact seller'
+  }: Props = $props();
 </script>
 
 <Dialog.Root>
-  <Dialog.Trigger class={buttonVariants({ variant: 'outline' })}>
-    Contact seller
+  <Dialog.Trigger class={cn(buttonVariants({ variant }), className, 'cursor-pointer')}>
+    {buttonText}
   </Dialog.Trigger>
   <Dialog.Content class="!max-w-4xl translate-y-0 top-[15%]">
     <Dialog.Header>

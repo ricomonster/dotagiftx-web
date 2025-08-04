@@ -22,10 +22,10 @@
 
 <Card.Root>
   <Card.Header class="flex flex-row gap-4">
-    <Image key={profile.avatar} type="user" class="!w-50" />
-    <div class="flex-1">
-      <h1 class="font-bold text-4xl mb-2">{profile.name}</h1>
-      <div class="mt-2">
+    <Image key={profile.avatar} type="user" class="!w-20 shrink-0" />
+    <div class="flex-1 min-w-0">
+      <h1 class="font-bold text-4xl truncate">{profile.name}</h1>
+      <div class="mt-1">
         <p class="text-lg">{profile.steam_id}</p>
         <p class="text-muted-foreground">joined <DateTime value={profile.created_at} /></p>
       </div>

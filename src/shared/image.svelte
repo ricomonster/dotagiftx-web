@@ -30,10 +30,6 @@
 </script>
 
 <figure class={cn('relative w-full border-2 border-green-500', type === 'item' ? 'aspect-[3/2]' : 'aspect-[1/1]', className)}>
-  {#if !loaded}
-    <Skeleton class="absolute inset-0 w-full h-full rounded" />
-  {/if}
-
   <img
     alt={key}
     class:hidden={!loaded}

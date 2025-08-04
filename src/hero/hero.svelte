@@ -14,6 +14,7 @@
 
   // Lib
   import { Skeleton } from '$lib/components/ui/skeleton';
+  import { cn } from '$lib/utils';
 
   let { hero, class: className }: Props = $props();
 
@@ -22,7 +23,7 @@
   const { image_hero: imageUrl } = getHero(hero);
 </script>
 
-<figure class={className}>
+<figure class={cn('relative', className)}>
   {#if !loaded}
     <Skeleton class="absolute inset-0 w-full h-full rounded" />
   {/if}

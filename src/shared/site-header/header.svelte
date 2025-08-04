@@ -7,8 +7,8 @@
 
   import MobileNav from './mobile-nav.svelte';
 
-// Icon
-  // import SteamIcon from './../steam-icon.svelte';
+  // Icon
+  import SteamIcon from './../steam-icon.svelte';
 </script>
 
 <header class="bg-[var(--header-bg-color)] sticky top-0 z-50 w-full">
@@ -23,6 +23,11 @@
         <div class="hidden w-full flex-1 md:flex md:w-auto md:flex-none">
           <!-- <CommandMenu {colors} /> -->
         </div>
+
+        <Button href="/post" variant="outline" class="gold-button !bg-[var(--header-bg-color)]">Post Item</Button>
+        <Button href="/login" variant="ghost" class="flex-row items-center">
+          <SteamIcon /> Sign in
+        </Button>
       </div>
     </div>
   </div>
