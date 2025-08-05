@@ -26,39 +26,34 @@
     dimension="60x60"
     class="!w-12 !md:w-12 shrink-0"
     type="user" />
-
   <!-- Middle: Name and Meta -->
   <a href={`/profiles/${item.user.steam_id}`} class="flex-1 min-w-0">
-    <div class="flex items-center gap-1 min-w-0">
-      <div class="truncate font-medium md:text-lg min-w-0">
+    <div class="flex items-start gap-1 min-w-0">
+      <div class="truncate font-medium md:text-lg min-w-0 flex-1">
         {item.user.name}
       </div>
-
-      {#if item.user.boons?.length}
-        {#if item.user.boons.includes('PARTNER_BADGE')}
-          <BoonBadge class="text-xs shrink-0" boon="PARTNER_BADGE" />
-        {/if}
-        {#if item.user.boons.includes('TRADER_BADGE')}
-          <BoonBadge class="text-xs shrink-0" boon="TRADER_BADGE" />
-        {/if}
+      {#if item.user.boons && item.user.boons.length}
+        <BoonBadge class="text-xs shrink-0 hidden md:block" boons={item.user.boons} />
       {/if}
     </div>
-
-    <p class="text-muted-foreground text-sm truncate">
-      Posted <DateTime value={item.created_at} />
-    </p>
+    <div class="flex items-center gap-1 min-w-0">
+      {#if item.user.boons && item.user.boons.length}
+        <BoonBadge class="text-xs shrink-0 md:hidden" boons={item.user.boons} />
+      {/if}
+      <p class="text-muted-foreground text-sm truncate min-w-0 flex-1">
+        Posted <DateTime value={item.created_at} />
+      </p>
+    </div>
   </a>
-
   <!-- Right: Price + Contact -->
-  <div class="flex flex-col lg:flex-row lg:items-center gap-1 shrink-0 text-right">
+  <div class="flex flex-col md:flex-row md:items-center md:gap-2 shrink-0 text-right">
     <Price class="font-medium text-green-600" value={item.price} />
-
     <ProfileContact
-      class="hidden lg:block"
+      class="hidden md:block"
       profile={item.user}
     />
     <ProfileContact
-      class="lg:hidden p-0 h-6"
+      class="md:hidden p-0 h-6"
       variant="link"
       buttonText="View"
       profile={item.user}

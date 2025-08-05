@@ -24,11 +24,11 @@
     <Tabs.Trigger value="bought">Bought</Tabs.Trigger>
     <Tabs.Trigger class="md:hidden" value="activities">Activities</Tabs.Trigger>
   </Tabs.List>
-
-  <Card.Root>
-    <Card.Content>
-      <Tabs.Content value="listing">
+  <Card.Root class="w-full min-w-0">
+    <Card.Content class="w-full min-w-0">
+      <Tabs.Content value="listing" class="w-full min-w-0">
         <MarketList
+          class="w-full min-w-0"
           index="user_id"
           userId={profile.id}
           type={10} />

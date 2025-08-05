@@ -4,7 +4,7 @@
   import type { BadgeVariant } from '$lib/components/ui/badge';
 
   interface Props {
-    boon: Boon
+    boons: Boon[]
     class?: string
   }
 
@@ -22,21 +22,22 @@
   import { Badge } from '$lib/components/ui/badge';
   import { cn } from '$lib/utils';
 
-  let { boon, class: className }: Props = $props();
+  let { boons, class: className }: Props = $props();
 
   let variant = $state<BadgeVariant>('outline');
+  let name = $state<string>('');
 
-  switch (boon) {
-    case 'PARTNER_BADGE':
-      className = cn('bg-[var(--gold)] text-white', className);
-      break;
+  if (boons.includes('PARTNER_BADGE')) {
+    className = cn('bg-[var(--gold)] text-white', className);
+    name = BOON_MAPPING['PARTNER_BADGE'];
+  }
 
-    case 'TRADER_BADGE':
-      className = cn('bg-[var(--sky-blue)] text-white', className);
-      break;
+  if (boons.includes('TRADER_BADGE')) {
+    className = cn('bg-[var(--sky-blue)] text-white', className);
+    name = BOON_MAPPING['TRADER_BADGE'];
   }
 </script>
 
 <a href="/plus">
-  <Badge {variant} class={className}>{BOON_MAPPING[boon]}</Badge>
+  <Badge {variant} class={className}>{name}</Badge>
 </a>

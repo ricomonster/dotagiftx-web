@@ -87,7 +87,7 @@
   });
 </script>
 
-<div class={cn(className)}>
+<div class={cn('w-full min-w-0', className)}>
   {#if loading}
     <p class="p-8 text-center">Loading...</p>
   {:else}
