@@ -27,11 +27,6 @@
   import { onMount } from 'svelte';
 
   // Packages
-  import { DateTime, Image, Price } from '$package/shared';
-  import { BoonBadge, ProfileContact } from '$package/user';
-
-  // Lib
-  import * as Table from '$lib/components/ui/table';
   import { cn } from '$lib/utils';
 
   import ProfileRow from './profile-row.svelte';
@@ -85,6 +80,8 @@
 
     loading = false;
   });
+
+  console.log(items);
 </script>
 
 <div class={cn('w-full min-w-0', className)}>
@@ -93,7 +90,13 @@
   {:else}
     {#if items && items.length > 0}
       {#each items as item, i (i)}
-        <ProfileRow {item} />
+        {#if index === 'item_id'}
+          <ProfileRow {item} />
+        {/if}
+
+        {#if index === 'user_id'}
+
+        {/if}
       {/each}
     {/if}
   {/if}

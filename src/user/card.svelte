@@ -40,14 +40,7 @@
     </div>
 
     {#if profile.boons && profile.boons.length > 0}
-      <div>
-        {#if profile.boons.includes('PARTNER_BADGE')}
-          <BoonBadge class="text-md font-medium" boon="PARTNER_BADGE" />
-        {/if}
-        {#if profile.boons.includes('TRADER_BADGE')}
-          <BoonBadge class="text-md font-medium" boon="TRADER_BADGE" />
-        {/if}
-      </div>
+      <BoonBadge class="text-md font-medium" boons={profile.boons} />
     {/if}
 
     <div class="space-y-2">
