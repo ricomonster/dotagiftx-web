@@ -1,14 +1,17 @@
 <script lang="ts">
   import { DiamondPlus } from '@lucide/svelte';
 
+  // Packages
+  import { CatalogSearchDialog } from '$package/catalog';
+
   // Lib
   import { Button } from '$lib/components/ui/button';
-  import * as NavigationMenu from '$lib/components/ui/navigation-menu';
-
-  import MobileNav from './mobile-nav.svelte';
 
   // Icon
   import SteamIcon from './../steam-icon.svelte';
+
+  import MobileNav from './mobile-nav.svelte';
+
 </script>
 
 <header class="bg-[var(--header-bg-color)] sticky top-0 z-50 w-full">
@@ -22,6 +25,7 @@
       <div class="ml-auto flex items-center gap-2 md:flex-1 md:justify-end">
         <div class="hidden w-full flex-1 md:flex md:w-auto md:flex-none">
           <!-- <CommandMenu {colors} /> -->
+          <CatalogSearchDialog />
         </div>
 
         <Button href="/post" variant="outline" class="gold-button !bg-[var(--header-bg-color)]">Post Item</Button>
