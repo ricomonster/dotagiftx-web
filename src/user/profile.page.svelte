@@ -26,7 +26,7 @@
       <ProfileCard {profile} />
     </div>
 
-    <div class="col-span-1 2xl:col-span-2">
+    <div class="col-span-1 2xl:col-span-2 w-full min-w-0">
       <ProfileTabs {profile} />
     </div>
   </div>

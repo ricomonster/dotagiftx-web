@@ -11,15 +11,15 @@
 
   interface Props {
     index: MarketIndex;
-    type: MarketType;
     class?: string;
+    hero?: Hero
     inventoryStatus?: number;
     itemId?: string;
     items?: Market[];
     sort?: MarketSort;
     status?: number;
+    type?: MarketType;
     userId?: string;
-    hero?: Hero
   }
 </script>
 
@@ -29,6 +29,7 @@
   // Packages
   import { cn } from '$lib/utils';
 
+  import ItemRow from './item-row.svelte';
   import ProfileRow from './profile-row.svelte';
 
   // Client
@@ -95,7 +96,7 @@
         {/if}
 
         {#if index === 'user_id'}
-
+          <ItemRow item={item} />
         {/if}
       {/each}
     {/if}

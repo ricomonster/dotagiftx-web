@@ -59,7 +59,7 @@ export interface MarketStats {
 }
 
 export type MarketIndex = 'user_id' | 'item_id' | 'hero';
-export type MarketSort = 'highest' | 'recent' | 'best' | 'lowest'
+export type MarketSort = 'highest' | 'recent' | 'best' | 'lowest' | 'created_at:desc' | 'updated_at:desc'
 export type MarketType = 10 | 20;
 export type MarketTypeName = 'ask' | 'bid'
 

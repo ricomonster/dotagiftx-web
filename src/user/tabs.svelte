@@ -24,14 +24,43 @@
     <Tabs.Trigger value="bought">Bought</Tabs.Trigger>
     <Tabs.Trigger class="md:hidden" value="activities">Activities</Tabs.Trigger>
   </Tabs.List>
-  <Card.Root class="w-full min-w-0">
-    <Card.Content class="w-full min-w-0">
+
+  <Card.Root>
+    <Card.Content>
       <Tabs.Content value="listing" class="w-full min-w-0">
         <MarketList
           class="w-full min-w-0"
           index="user_id"
+          sort="created_at:desc"
           userId={profile.id}
           type={10} />
+      </Tabs.Content>
+
+      <Tabs.Content value="reserved" class="w-full min-w-0">
+        <MarketList
+          class="w-full min-w-0"
+          index="user_id"
+          userId={profile.id}
+          sort="updated_at:desc"
+          status={300} />
+      </Tabs.Content>
+
+      <Tabs.Content value="delivered" class="w-full min-w-0">
+        <MarketList
+          class="w-full min-w-0"
+          index="user_id"
+          userId={profile.id}
+          sort="updated_at:desc"
+          status={400} />
+      </Tabs.Content>
+
+      <Tabs.Content value="bought" class="w-full min-w-0">
+        <MarketList
+          class="w-full min-w-0"
+          index="user_id"
+          userId={profile.id}
+          sort="updated_at:desc"
+          status={410} />
       </Tabs.Content>
     </Card.Content>
   </Card.Root>

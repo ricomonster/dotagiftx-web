@@ -20,7 +20,7 @@
   let { profile, class: className }: Props = $props();
 </script>
 
-<Card.Root>
+<Card.Root class={className}>
   <Card.Header class="flex flex-row gap-4">
     <Image key={profile.avatar} type="user" class="!w-20 shrink-0" />
     <div class="flex-1 min-w-0">

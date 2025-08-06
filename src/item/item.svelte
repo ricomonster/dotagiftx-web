@@ -1,5 +1,4 @@
 <script lang="ts" module>
-  import { cn } from '$lib/utils';
   import type { Catalog, CatalogSort } from '$package/dotagiftx';
 
   interface Props {
@@ -11,12 +10,15 @@
 </script>
 
 <script lang="ts">
-  let { catalog, class: className, sort, vertical = false }: Props = $props();
-
   // Packages
   import { DateTime, Image, Price } from '$package/shared';
 
+  // Lib
+  import { cn } from '$lib/utils';
+
   import RarityBadge from './rarity.svelte';
+
+  let { catalog, class: className, sort, vertical = false }: Props = $props();
 </script>
 
 <article class={cn(vertical ? 'flex flex-col gap-2' : 'flex gap-2 md:flex-row flex-col', className)}>

@@ -36,8 +36,10 @@
         dimension="600x400"
         class="mx-auto w-full"
         type="item" />
+
       <Related {catalog} />
     </div>
+
     <div class="lg:col-span-1 3xl:col-span-2 space-y-6 min-w-0">
       <header class="space-y-2">
         <div class="space-y-2">
@@ -53,6 +55,7 @@
           <span class="text-muted-foreground">Used by:</span> <a href={`/search?hero=${catalog.hero}`}>{catalog.hero}</a>
         </p>
       </header>
+
       <div class="grid grid-cols-2 gap-4">
         <Button
           href={`/post?s=${catalog.slug}`}
@@ -66,6 +69,7 @@
           Place buy order
         </Button>
       </div>
+
       <div class="w-full min-w-0">
         <Tabs {catalog} />
       </div>

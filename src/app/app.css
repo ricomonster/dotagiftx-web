@@ -124,6 +124,10 @@
   border-color: var(--sky-blue);
 }
 
+.text-gold {
+  color: var(--gold)
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
