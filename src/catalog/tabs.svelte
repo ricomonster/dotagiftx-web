@@ -32,7 +32,7 @@
           itemId={catalog.id}
           items={catalog.asks}
           sort="lowest"
-          type={10} />
+          type="ask" />
       </Tabs.Content>
 
       <Tabs.Content value="orders">
@@ -40,7 +40,7 @@
           index="item_id"
           itemId={catalog.id}
           sort="highest"
-          type={20} />
+          type="bid" />
       </Tabs.Content>
 
       <Tabs.Content value="activities">Activities</Tabs.Content>

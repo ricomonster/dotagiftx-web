@@ -33,7 +33,7 @@
           index="user_id"
           sort="created_at:desc"
           userId={profile.id}
-          type={10} />
+          type="ask" />
       </Tabs.Content>
 
       <Tabs.Content value="reserved" class="w-full min-w-0">

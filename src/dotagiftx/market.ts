@@ -61,20 +61,25 @@ export interface MarketStats {
 export type MarketIndex = 'user_id' | 'item_id' | 'hero';
 export type MarketSort = 'highest' | 'recent' | 'best' | 'lowest' | 'created_at:desc' | 'updated_at:desc'
 export type MarketType = 10 | 20;
-export type MarketTypeName = 'ask' | 'bid'
 
 export interface MarketOptions {
   index: MarketIndex;
   hero?: Hero;
   inventory_status?: number;
   item_id?: string;
+  limit?: number;
   nocache?: boolean;
   sort?: MarketSort
   status?: number;
-  type?: MarketType;
+  type?: MarketType | MarketTypeName;
   user_id?: string;
-  limit?: number;
 }
+
+export type MarketTypeName = 'ask' | 'bid'
+export const MARKET_TYPE: Record<MarketTypeName, MarketType> = {
+  'ask': 10,
+  'bid': 20,
+};
 
 /**
  * Get market items

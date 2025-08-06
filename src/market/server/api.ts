@@ -5,11 +5,12 @@ import type {
   MarketIndex,
   MarketOptions,
   MarketSort,
-  MarketType
+  MarketType,
+  MarketTypeName
 } from '$package/dotagiftx';
 
 // Modules
-import { getMarket} from '$package/dotagiftx';
+import { getMarket, MARKET_TYPE} from '$package/dotagiftx';
 
 /**
  * GET /api/markets
@@ -52,7 +53,9 @@ export const GET: RequestHandler = async ({ url }) => {
   }
 
   if (type) {
-    opts.type = parseInt(type, 10) as MarketType;
+    opts.type = typeof type === 'string' ?
+      MARKET_TYPE[type as MarketTypeName] :
+      parseInt(type, 10) as MarketType;
   }
 
   if (userId && index === 'user_id') {

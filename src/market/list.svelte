@@ -1,12 +1,12 @@
 <script lang="ts" module>
   // Interfaces
   import type {
+    Hero,
     Market,
+    MarketIndex,
     MarketOptions,
     MarketSort,
-    MarketIndex,
-    MarketType,
-    Hero
+    MarketTypeName
   } from '$package/dotagiftx';
 
   interface Props {
@@ -18,7 +18,7 @@
     items?: Market[];
     sort?: MarketSort;
     status?: number;
-    type?: MarketType;
+    type?: MarketTypeName;
     userId?: string;
   }
 </script>
