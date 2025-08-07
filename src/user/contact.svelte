@@ -1,4 +1,6 @@
 <script lang="ts" module>
+  import { SearchIcon } from '@lucide/svelte';
+
   // Interfaces
   import type { User } from '$package/dotagiftx';
   import type { ButtonVariant } from '$lib/components/ui/button';

@@ -16,67 +16,48 @@ import { getMarket, MARKET_TYPE} from '$package/dotagiftx';
  * GET /api/markets
  */
 export const GET: RequestHandler = async ({ url }) => {
-  const hero  = url.searchParams.get('hero');
-  const index  = url.searchParams.get('index');
-  const inventoryStatus  = url.searchParams.get('inventory_status');
-  const itemId  = url.searchParams.get('item_id');
-  const limit = url.searchParams.get('limit');
-  const nocache  = url.searchParams.get('nocache');
-  const sort  = url.searchParams.get('sort');
-  const status  = url.searchParams.get('status');
-  const type  = url.searchParams.get('type');
-  const userId  = url.searchParams.get('user_id');
+  // Extract all params at once
+  const params = Object.fromEntries(url.searchParams);
+  const {
+    hero,
+    index = 'item_id',
+    inventory_status,
+    item_id,
+    limit,
+    nocache,
+    page,
+    sort,
+    status,
+    type,
+    user_id
+  } = params;
 
-  const opts: MarketOptions = { index: 'item_id' };
-  if (index) {
-    opts.index = index as MarketIndex;
-  }
+  // Build options object with type conversions
+  const opts: MarketOptions = {
+    index: index as MarketIndex,
+    ...(inventory_status && { inventory_status: parseInt(inventory_status, 10) }),
+    ...(item_id && index === 'item_id' && { item_id }),
+    ...(user_id && index === 'user_id' && { user_id }),
+    ...(hero && index === 'hero' && { hero: hero as Hero }),
+    ...(nocache && { nocache: nocache === 'true' }),
+    ...(sort && { sort: sort as MarketSort }),
+    ...(status && { status: parseInt(status, 10) }),
+    ...(type && {
+      type: typeof type === 'string'
+        ? MARKET_TYPE[type as MarketTypeName]
+        : parseInt(type, 10) as MarketType
+    }),
+    ...(limit && { limit: parseInt(limit, 10) }),
+    ...(page && { page: parseInt(page, 10) })
+  };
 
-  if (inventoryStatus) {
-    opts.inventory_status = parseInt(inventoryStatus, 10);
-  }
-
-  if (itemId && index === 'item_id') {
-    opts.item_id = itemId;
-  }
-
-  if (nocache) {
-    opts.nocache = nocache === 'true';
-  }
-
-  if (sort) {
-    opts.sort = sort as MarketSort;
-  }
-
-  if (status) {
-    opts.status = parseInt(status, 10);
-  }
-
-  if (type) {
-    opts.type = typeof type === 'string' ?
-      MARKET_TYPE[type as MarketTypeName] :
-      parseInt(type, 10) as MarketType;
-  }
-
-  if (userId && index === 'user_id') {
-    opts.user_id = userId;
-  }
-
-  if (hero && index === 'hero') {
-    opts.hero = hero as Hero;
-  }
-
-  if (limit) {
-    opts.limit = parseInt(limit, 10);
-  }
-
+  // Handle response
   const result = await getMarket(opts);
-  if (result.isOk()) {
-    return new Response(JSON.stringify(result.value), { status: 200 });
-  }
 
-  return new Response(
-    JSON.stringify({ message: result.error.message }),
-    { status: result.error.status || 500 }
-  );
+  return result.isOk()
+    ? new Response(JSON.stringify(result.value), { status: 200 })
+    : new Response(
+      JSON.stringify({ message: result.error.message }),
+      { status: result.error.status || 500 }
+    );
 };

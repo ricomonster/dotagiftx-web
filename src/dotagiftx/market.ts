@@ -69,6 +69,7 @@ export interface MarketOptions {
   item_id?: string;
   limit?: number;
   nocache?: boolean;
+  page?: number;
   sort?: MarketSort
   status?: number;
   type?: MarketType | MarketTypeName;

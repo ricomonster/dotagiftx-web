@@ -29,7 +29,7 @@
   <!-- Middle: Name and Meta -->
   <a href={`/profiles/${item.user.steam_id}`} class="flex-1 min-w-0">
     <div class="flex items-start gap-1 min-w-0">
-      <h3 class="truncate font-medium md:text-lg min-w-0 flex-1 lg:flex-none">
+      <h3 class="truncate font-medium md:text-lg min-w-0">
         {item.user.name}
       </h3>
       {#if item.user.boons && item.user.boons.length}

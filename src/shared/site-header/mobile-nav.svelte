@@ -11,6 +11,21 @@
   let { class: className, ...restProps }: ButtonProps = $props();
 
   let open = $state(false);
+
+  let main = [
+    {
+      name: 'Home',
+      href: '/'
+    },
+    {
+      name: 'Login',
+      href: '/login',
+    },
+    {
+      name: 'Post item',
+      href: '/post'
+    }
+  ];
 </script>
 
 <Popover.Root bind:open>
@@ -42,7 +57,7 @@
           </div>
           <span class="sr-only">Toggle Menu</span>
         </div>
-        <span class="flex h-8 items-center text-lg font-medium leading-none"> Menu </span>
+        <span class="flex h-8 items-center text-lg font-medium leading-none">Menu</span>
       </Button>
     {/snippet}
   </Popover.Trigger>
@@ -58,19 +73,15 @@
       <div class="flex flex-col gap-4">
         <div class="text-muted-foreground text-sm font-medium">Menu</div>
         <div class="flex flex-col gap-3">
-          <!-- {@render MobileLink({ href: '/', content: 'Home' })} -->
-          <!-- {#each mainNavItems as item, i (i)} -->
-          <!--   {@render MobileLink({ href: item.href, content: item.title })} -->
-          <!-- {/each} -->
-          <a
-            href="/"
-            onclick={() => {
-              open = false;
-            }}
-            class={cn('text-2xl font-medium', className)}
-          >
-            Hello
-          </a>
+          {#each main as m, i (i)}
+            <a
+              href={m.href}
+              onclick={() => { open = false; }}
+              class={cn('text-2xl font-medium', className)}
+            >
+              {m.name}
+            </a>
+          {/each}
         </div>
       </div>
       <div class="flex flex-col gap-8">

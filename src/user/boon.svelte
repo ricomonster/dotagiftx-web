@@ -38,6 +38,8 @@
   }
 </script>
 
-<a href="/plus">
-  <Badge {variant} class={className}>{name}</Badge>
-</a>
+{#if name}
+  <a href="/plus">
+    <Badge {variant} class={className}>{name}</Badge>
+  </a>
+{/if}
