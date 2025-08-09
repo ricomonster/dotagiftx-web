@@ -63,8 +63,8 @@ export type MarketSort = 'highest' | 'recent' | 'best' | 'lowest' | 'created_at:
 export type MarketType = 10 | 20;
 
 export interface MarketOptions {
-  index: MarketIndex;
   hero?: Hero;
+  index?: MarketIndex;
   inventory_status?: number;
   item_id?: string;
   limit?: number;

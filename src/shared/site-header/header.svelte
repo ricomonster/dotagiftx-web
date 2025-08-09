@@ -15,7 +15,7 @@
 
 <header class="bg-[var(--header-bg-color)] sticky top-0 z-50 w-full">
   <div class="container-wrapper 3xl:fixed:px-0 px-6 py-2">
-    <div class="3xl:fixed:container h-(--header-height) **:data-[slot=separator]:!h-4 flex items-center gap-2">
+    <div class="3xl:fixed:container h-(--header-height) flex items-center gap-2">
       <MobileNav class="flex lg:hidden" />
       <Button href="/" variant="ghost" class="hidden lg:flex">
         <img src="/brand_1x.png" alt="DotagiftX" />

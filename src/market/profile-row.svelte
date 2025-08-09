@@ -19,14 +19,14 @@
   let { class: className, item }: Props = $props();
 </script>
 
-<article class={cn('flex items-start py-1 gap-2', className)}>
-  <!-- Left: Avatar -->
+<article class={cn('flex items-start', className)}>
   <Image
     key={item.user.avatar}
     dimension="60x60"
     class="!w-12 !md:w-12 shrink-0"
+    boons={item.user.boons}
     type="user" />
-  <!-- Middle: Name and Meta -->
+
   <a href={`/profiles/${item.user.steam_id}`} class="flex-1 min-w-0">
     <div class="flex items-start gap-1 min-w-0">
       <h3 class="truncate font-medium md:text-lg min-w-0">
@@ -45,7 +45,7 @@
       </p>
     </div>
   </a>
-  <!-- Right: Price + Contact -->
+
   <div class="flex flex-col md:flex-row md:items-center md:gap-2 shrink-0 text-right">
     <Price class="font-medium text-green-600" value={item.price} />
     <ProfileContact

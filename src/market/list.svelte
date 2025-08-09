@@ -10,7 +10,7 @@
   } from '$package/dotagiftx';
 
   interface Props {
-    index: MarketIndex;
+    index?: MarketIndex;
     class?: string;
     hero?: Hero
     inventoryStatus?: number;
@@ -65,15 +65,15 @@
     loading = true;
 
     const opts: MarketOptions = {
-      index,
       sort: currentSort,
       status,
       type,
       limit,
       page: currentPage,
-      ...(index === 'item_id' && { item_id: itemId }),
-      ...(index === 'user_id' && { user_id: userId }),
-      ...(index === 'hero' && { hero }),
+      ...(index && { index }),
+      ...(index && index === 'item_id' && { item_id: itemId }),
+      ...(index && index === 'user_id' && { user_id: userId }),
+      ...(index && index === 'hero' && { hero }),
       ...(inventoryStatus && { inventory_status: inventoryStatus }),
     };
 
@@ -114,18 +114,18 @@
     <Toggle {type} onsort={handleToggleSort} />
   {/if}
 
-  <div class="w-full min-w-0 space-y-2">
+  <div class="w-full min-w-0">
     {#if loading}
       <p class="p-8 text-center">Loading...</p>
     {:else}
       {#if listItems && listItems.length > 0}
         {#each listItems as item, i (i)}
           {#if index === 'item_id'}
-            <ProfileRow {item} />
+            <ProfileRow class="gap-2 py-2" {item} />
           {/if}
 
           {#if index === 'user_id'}
-            <ItemRow item={item} />
+            <ItemRow class="gap-2 py-2" item={item} />
           {/if}
         {/each}
       {:else}

@@ -1,6 +1,8 @@
 // Interfaces
-import { getTopKeywords } from '$package/dotagiftx';
 import type { RequestHandler } from '$routes/api/stats/top_keywords/$types';
+
+// Package
+import { getTopKeywords } from '$package/dotagiftx';
 
 
 /**

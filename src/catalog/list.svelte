@@ -35,7 +35,7 @@
   });
 </script>
 
-<section class={cn('catalog-list', className, sort === 'trending' ? 'grid lg:grid-cols-2 xl:grid-cols-1 gap-x-8' : '')}>
+<section class={cn('catalog-list grid gap-x-8 min-w-0', className)}>
   {#if loading}
     <div class="space-y-4">
       {#each {length: limit} as _, i (i)}
@@ -46,7 +46,7 @@
     {#if catalogs}
       {#each catalogs as catalog, i (i)}
         <a href={`/${catalog.slug}`}>
-          <ItemCard {catalog} {sort} class="mb-4" />
+          <ItemCard {catalog} {sort} class="gap-2 my-2" />
         </a>
       {/each}
     {/if}

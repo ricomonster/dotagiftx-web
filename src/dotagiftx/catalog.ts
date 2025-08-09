@@ -1,7 +1,7 @@
 import qs from 'qs';
 
 // Interfaces
-import type { Item } from './item';
+import type { Item, Rarity } from './item';
 import type { Market } from './market';
 import type { Result, DotagiftxList } from './types';
 
@@ -33,11 +33,13 @@ export interface Catalog extends Omit<Item, 'active'> {
 
 export interface GetCatalogOpts {
   hero?: string;
+  index?: string;
   limit?: number;
+  origin?: string;
   page?: number;
   q?: string;
+  rarity?: Rarity;
   sort?: CatalogSort;
-  index?: 'hero';
 }
 
 

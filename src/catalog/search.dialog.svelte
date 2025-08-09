@@ -45,9 +45,10 @@
         <div class="relative w-full">
           <Search class="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground h-4 w-4" />
           <Input
-            type="text"
-            placeholder="Search for item, hero, or treasure"
             class="w-full pl-10 pr-10 h-14 text-lg"
+            name="q"
+            placeholder="Search for item, hero, or treasure"
+            type="text"
           />
           <Button
             variant="ghost"

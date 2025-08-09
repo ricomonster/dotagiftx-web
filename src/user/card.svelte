@@ -22,7 +22,7 @@
 
 <Card.Root class={className}>
   <Card.Header class="flex flex-row gap-4">
-    <Image key={profile.avatar} type="user" class="!w-20 shrink-0" />
+    <Image key={profile.avatar} type="user" class="!w-20 shrink-0" boons={profile.boons} />
     <div class="flex-1 min-w-0">
       <h1 class="font-bold text-4xl truncate">{profile.name}</h1>
       <div class="mt-1">

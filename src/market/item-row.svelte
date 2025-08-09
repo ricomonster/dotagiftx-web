@@ -10,7 +10,7 @@
 <script lang="ts">
   // Packages
   import { RarityBadge } from '$package/item';
-  import { Image, Price, DateTime } from '$package/shared';
+  import { Image, Price } from '$package/shared';
   import { ProfileContact } from '$package/user';
 
   // Lib
@@ -20,12 +20,13 @@
   console.log(item);
 </script>
 
-<article class={cn('flex items-start py-1 gap-2', className)}>
+<article class={cn('flex items-start', className)}>
   <!-- Left: Avatar -->
   <Image
     key={item.item.slug}
     dimension="97x75"
     class="!w-22 shrink-0"
+    rarity={item.item.rarity}
     type="item" />
 
   <a href={`/${item.item.slug}`} class="flex-1 min-w-0">

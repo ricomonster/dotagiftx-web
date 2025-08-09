@@ -35,6 +35,7 @@
         key={catalog.slug}
         dimension="600x400"
         class="mx-auto w-full"
+        rarity={catalog.rarity}
         type="item" />
 
       <Related {catalog} />
