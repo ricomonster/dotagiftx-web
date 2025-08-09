@@ -1,26 +1,14 @@
 <script lang="ts" module>
   // Interfaces
   import type {
-    Hero,
     Market,
-    MarketIndex,
     MarketOptions,
     MarketSort,
-    MarketTypeName
   } from '$package/dotagiftx';
 
-  interface Props {
-    index?: MarketIndex;
-    class?: string;
-    hero?: Hero
-    inventoryStatus?: number;
-    itemId?: string;
+  interface Props extends MarketOptions {
     items?: Market[];
-    limit?: number;
-    sort?: MarketSort;
-    status?: number;
-    type?: MarketTypeName;
-    userId?: string;
+    class?: string;
   }
 </script>
 
@@ -41,14 +29,14 @@
   let {
     class: className,
     index,
-    inventoryStatus,
-    itemId,
+    inventory_status: inventoryStatus,
+    item_id: itemId,
     items,
     limit = 10,
     sort = 'lowest',
     status = 200,
     type,
-    userId,
+    user_id: userId,
     hero,
   }: Props = $props();
 

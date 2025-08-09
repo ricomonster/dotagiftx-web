@@ -1,9 +1,9 @@
 <script lang="ts" module>
   // Interfaces
-  import type { MarketSort, MarketTypeName } from '$package/dotagiftx';
+  import type { MarketSort, MarketType, MarketTypeName } from '$package/dotagiftx';
 
   interface Props {
-    type: MarketTypeName;
+    type: MarketTypeName | MarketType;
     onsort?(sort: MarketSort): void;
   }
 </script>
