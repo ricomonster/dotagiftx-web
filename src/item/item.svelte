@@ -20,11 +20,11 @@
   let { catalog, class: className, sort }: Props = $props();
 </script>
 
-<article class={cn('flex items-start', className)}>
+<article class={cn('flex items-start min-w-0', className)}>
   <Image
     key={catalog.slug}
     dimension="97x75"
-    class="w-20 shrink-0"
+    class="w-[97px] shrink-0"
     rarity={catalog.rarity}
     type="item" />
 

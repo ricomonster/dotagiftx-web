@@ -21,7 +21,7 @@
 
   let { catalog, class: className }: Props = $props();
 
-  let loading = true;
+  // let loading = true;
   let heroItemCount = $state(0);
 
   // Get the stats

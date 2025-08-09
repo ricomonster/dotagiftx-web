@@ -37,7 +37,7 @@
 
 <section class={cn('catalog-list grid gap-x-8 min-w-0', className)}>
   {#if loading}
-    <div class="space-y-4">
+    <div class="space-y-3">
       {#each {length: limit} as _, i (i)}
         <ItemLoader />
       {/each}
@@ -45,8 +45,8 @@
   {:else}
     {#if catalogs}
       {#each catalogs as catalog, i (i)}
-        <a href={`/${catalog.slug}`}>
-          <ItemCard {catalog} {sort} class="gap-2 my-2" />
+        <a href={`/${catalog.slug}`} class="my-2 min-w-0">
+          <ItemCard {catalog} {sort} class="gap-2" />
         </a>
       {/each}
     {/if}
