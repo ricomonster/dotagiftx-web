@@ -30,7 +30,7 @@
   <img
     alt={hero}
     class:hidden={!loaded}
-    class="w-full rounded"
+    class="w-full rounded border-3"
     draggable="false"
     oncontextmenu={(event) => event.preventDefault()}
     onload={() => (loaded = true)}

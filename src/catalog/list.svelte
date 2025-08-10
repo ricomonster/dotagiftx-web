@@ -1,11 +1,11 @@
 <script lang="ts" module>
-  import type { Catalog, CatalogSort } from '$package/dotagiftx';
+  import type { Catalog, CatalogSort, GetCatalogOpts } from '$package/dotagiftx';
 
-  interface Props {
-    sort: CatalogSort
+  interface Props extends GetCatalogOpts {
     catalogs?: Catalog[]
     class?: string
     limit?: number
+    sort?: CatalogSort
   }
 </script>
 <script lang="ts">
