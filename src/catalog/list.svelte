@@ -20,14 +20,35 @@
   // API
   import { getCatalogs } from './client';
 
-  let { sort, catalogs, class: className, limit = 10 }: Props = $props();
+  let {
+    catalogs,
+    class: className,
+    hero,
+    index,
+    limit = 10,
+    origin,
+    page = 1,
+    q,
+    rarity,
+    sort,
+  }: Props = $props();
 
   let loading = $state(true);
 
   onMount(async () => {
     if (!catalogs || catalogs.length === 0) {
       // Get the catalog
-      const result = await getCatalogs({ sort, limit });
+      const result = await getCatalogs({
+        ...(hero && { hero }),
+        ...(index && { index }),
+        ...(limit && { limit }),
+        ...(origin && { origin }),
+        ...(page && { page }),
+        ...(q && { q }),
+        ...(rarity && { rarity }),
+        ...(sort && { sort }),
+      });
+
       catalogs = result.data;
     }
 
@@ -35,18 +56,20 @@
   });
 </script>
 
-<section class={cn('catalog-list grid gap-x-8 min-w-0 space-y-2', className)}>
-  {#if loading}
-    {#each {length: limit} as _, i (i)}
-      <ItemLoader />
-    {/each}
-  {:else}
-    {#if catalogs}
-      {#each catalogs as catalog, i (i)}
-        <a href={`/${catalog.slug}`} class="min-w-0">
-          <ItemCard {catalog} {sort} class="gap-2" />
-        </a>
+<section class={cn('catalog-list min-w-0', className)}>
+  <div class="grid gap-x-8 min-w-0 space-y-2">
+    {#if loading}
+      {#each {length: limit} as _, i (i)}
+        <ItemLoader />
       {/each}
+    {:else}
+      {#if catalogs}
+        {#each catalogs as catalog, i (i)}
+          <a href={`/${catalog.slug}`} class="min-w-0">
+            <ItemCard {catalog} {sort} class="gap-2" />
+          </a>
+        {/each}
+      {/if}
     {/if}
-  {/if}
+  </div>
 </section>

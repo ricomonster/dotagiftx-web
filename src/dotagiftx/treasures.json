@@ -1,0 +1,146 @@
+[
+  {
+    "treasure": "Spring 2025 Heroes' Hoard",
+    "asset": "/treasures/spring_2024_heroes_hoard.png"
+  },
+  {
+    "treasure": "The Charms of the Snake",
+    "asset": "/treasures/the_charms_of_the_snake.png"
+  },
+  {
+    "treasure": "Winter 2024 Heroes' Hoard",
+    "asset": "/treasures/winter_2024_heroes_hoard.png"
+  },
+  {
+    "treasure": "Crownfall 2024 Collector's Cache II",
+    "asset": "/treasures/crownfall_2024_collect_s_cache_ii.png"
+  },
+  {
+    "treasure": "Crownfall 2024 Collector's Cache",
+    "asset": "/treasures/crownfall_2024_collect_s_cache.png"
+  },
+  {
+    "treasure": "Crownfall Treasure III",
+    "asset": "/treasures/crownfall_treasure_iii.png"
+  },
+  {
+    "treasure": "Crownfall Treasure II",
+    "asset": "/treasures/crownfall_treasure_ii.png"
+  },
+  {
+    "treasure": "Crownfall Treasure I",
+    "asset": "/treasures/crownfall_treasure_i.png"
+  },
+  {
+    "treasure": "Dead Reckoning Chest",
+    "asset": "/treasures/dead_reckoning_chest.png"
+  },
+  {
+    "treasure": "August 2023 Collector's Cache",
+    "asset": "/treasures/august_2023_collector_s_cache.png"
+  },
+  {
+    "treasure": "Diretide 2022 Collector's Cache II",
+    "asset": "/treasures/diretide_2022_collector_s_cache_ii.png"
+  },
+  {
+    "treasure": "Diretide 2022 Collector's Cache",
+    "asset": "/treasures/diretide_2022_collector_s_cache.png"
+  },
+  {
+    "treasure": "Immortal Treasure II 2022",
+    "asset": "/treasures/immortal_treasure_ii_2022.png"
+  },
+  {
+    "treasure": "Immortal Treasure I 2022",
+    "asset": "/treasures/immortal_treasure_i_2022.png"
+  },
+  {
+    "treasure": "The Battle Pass Collection 2022",
+    "asset": "/treasures/the_battle_pass_collection_2022.png"
+  },
+  {
+    "treasure": "Ageless Heirlooms 2022",
+    "asset": "/treasures/ageless_heirlooms_2022.png"
+  },
+  {
+    "treasure": "Aghanim's 2021 Collector's Cache",
+    "asset": "/treasures/aghanim_s_2021_collector_s_cache.webp"
+  },
+  {
+    "treasure": "Aghanim's 2021 Ageless Heirlooms",
+    "asset": "/treasures/aghanim_s_2021_ageless_heirlooms.webp"
+  },
+  {
+    "treasure": "Aghanim's 2021 Continuum Collection",
+    "asset": "/treasures/aghanim_s_2021_continuum_collection.webp"
+  },
+  {
+    "treasure": "Aghanim's 2021 Immortal Treasure",
+    "asset": "/treasures/aghanim_s_2021_immortal_treasure.webp"
+  },
+  {
+    "treasure": "Nemestice 2021 Collector's Cache",
+    "asset": "/treasures/nemestice_2021_collector_s_cache.webp"
+  },
+  {
+    "treasure": "Nemestice 2021 Immortal Treasure",
+    "asset": "/treasures/nemestice_2021_immortal_treasure.webp"
+  },
+  {
+    "treasure": "Nemestice 2021 Themed Treasure",
+    "asset": "/treasures/nemestice_2021_themed_treasure.webp"
+  },
+  {
+    "treasure": "Immortal Treasure III 2020",
+    "asset": "/treasures/immortal_treasure_iii_2020.webp"
+  },
+  {
+    "treasure": "Immortal Treasure II 2020",
+    "asset": "/treasures/immortal_treasure_ii_2020.webp"
+  },
+  {
+    "treasure": "Immortal Treasure I 2020",
+    "asset": "/treasures/immortal_treasure_i_2020.webp"
+  },
+  {
+    "treasure": "The International 2020 Collector's Cache II",
+    "asset": "/treasures/the_international_2020_collector_s_cache_ii.webp"
+  },
+  {
+    "treasure": "The International 2020 Collector's Cache",
+    "asset": "/treasures/the_international_2020_collector_s_cache.webp"
+  },
+  {
+    "treasure": "The International 2019 Collector's Cache II",
+    "asset": "/treasures/the_international_2019_collector_s_cache_ii.webp"
+  },
+  {
+    "treasure": "The International 2019 Collector's Cache",
+    "asset": "/treasures/the_international_2019_collector_s_cache.webp"
+  },
+  {
+    "treasure": "The International 2018 Collector's Cache II",
+    "asset": "/treasures/the_international_2018_collector_s_cache_ii.webp"
+  },
+  {
+    "treasure": "The International 2018 Collector's Cache",
+    "asset": "/treasures/the_international_2018_collector_s_cache.webp"
+  },
+  {
+    "treasure": "The International 2017 Collector's Cache",
+    "asset": "/treasures/the_international_2017_collector_s_cache.webp"
+  },
+  {
+    "treasure": "The International 2016 Collector's Cache",
+    "asset": "/treasures/the_international_2016_collector_s_cache.webp"
+  },
+  {
+    "treasure": "The International 2015 Collector's Cache",
+    "asset": "/treasures/the_international_2015_collector_s_cache.webp"
+  },
+  {
+    "treasure": "Treasure of the Cryptic Beacon",
+    "asset": "/treasures/treasure_of_the_cryptic_beacon.webp"
+  }
+]

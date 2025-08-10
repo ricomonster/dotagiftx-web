@@ -15,7 +15,7 @@
 <NavigationMenu.Root class={className}>
   <NavigationMenu.List>
     <NavigationMenu.Item>
-      <NavigationMenu.Link class="text-white">
+      <NavigationMenu.Link class="text-white font-bold">
         {#snippet child({ props })}
           <a href="/treasures" {...props}>Treasures</a>
         {/snippet}
@@ -23,7 +23,7 @@
     </NavigationMenu.Item>
 
     <NavigationMenu.Item>
-      <NavigationMenu.Link>
+      <NavigationMenu.Link class="font-bold">
         {#snippet child({ props })}
           <a {...props} href="/plus">
             <span class="flex flex-row items-center gap-1">Dotagift<DiamondPlus class="size-4 text-yellow-600" /></span>

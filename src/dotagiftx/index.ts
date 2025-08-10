@@ -5,5 +5,6 @@ export * from './hero';
 export * from './item';
 export * from './market';
 export * from './stat';
+export * from './treasure';
 export * from './types';
 export * from './user';
