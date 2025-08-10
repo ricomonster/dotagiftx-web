@@ -11,7 +11,7 @@
   import { onMount } from 'svelte';
 
   // Packages
-  import { HeroAvatar } from '$package/hero';
+  import { Hero } from '$package/hero';
 
   // Lib
   import * as Card from '$lib/components/ui/card';
@@ -21,29 +21,35 @@
 
   let { catalog, class: className }: Props = $props();
 
-  // let loading = true;
-  let heroItemCount = $state(0);
+  let treasureItemCount = $state(0);
 
   // Get the stats
   onMount(async () => {
-    const result = await getCatalogs({
-      hero: catalog.hero,
+    const origin = await getCatalogs({
+      origin: catalog.origin,
       limit: 1,
-      index: 'hero',
+      index: 'origin',
     });
 
-    heroItemCount = result.result_count;
+    treasureItemCount = origin.total_count;
   });
 </script>
 
-<div class={cn(className)}>
+<div class={cn('grid gap-2', className)}>
   <Card.Root>
     <Card.Content>
-      <a href={`/search?s=${catalog.hero}`} class="flex flex-row gap-4">
-        <HeroAvatar hero={catalog.hero} class="w-40" />
+      <a href={`/search?hero=${catalog.hero}`}>
+        <Hero hero={catalog.hero} inventory={true} class="gap-2" />
+      </a>
+    </Card.Content>
+  </Card.Root>
+
+  <Card.Root>
+    <Card.Content>
+      <a href={`/search?origin=${catalog.origin}`} class="flex flex-row gap-4">
         <div class="flex-1">
-          <h3 class="text-2xl font-medium">{catalog.hero}</h3>
-          <p class="text-muted-foreground">{heroItemCount} items</p>
+          <h3 class="text-xl font-medium">{catalog.origin}</h3>
+          <p class="text-muted-foreground">{treasureItemCount} items</p>
         </div>
       </a>
     </Card.Content>

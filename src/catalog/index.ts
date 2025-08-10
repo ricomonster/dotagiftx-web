@@ -1,3 +1,6 @@
+// Client
+export * from './client';
+
 // UI
 export { default as CatalogList } from './list.svelte';
 export { default as CatalogSearchDialog } from './search.dialog.svelte';

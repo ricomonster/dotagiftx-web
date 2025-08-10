@@ -3,36 +3,57 @@
   import type { Hero } from '$package/dotagiftx';
 
   interface Props {
-    hero: Hero
-    class?: string
+    hero: Hero;
+    inventory?: boolean;
+    class?: string;
   }
 </script>
 
 <script lang="ts">
-  // Package
-  import { getHero } from '$package/dotagiftx';
+  import { onMount } from 'svelte';
+
+  // Packages
+  import { getCatalogs } from '$package/catalog';
 
   // Lib
   import { Skeleton } from '$lib/components/ui/skeleton';
   import { cn } from '$lib/utils';
 
-  let { hero, class: className }: Props = $props();
+  import Avatar from './avatar.svelte';
 
-  let loaded = $state(false);
+  let { class: className, hero, inventory }: Props = $props();
 
-  const { image_hero: imageUrl } = getHero(hero);
+  let loading = $state(true);
+  let count = $state(0);
+
+  onMount(async () => {
+    if (inventory) {
+      const result  = await getCatalogs({
+        hero,
+        limit: 1,
+        index: 'hero',
+      });
+
+      count = result.total_count;
+      loading = false;
+    }
+  });
 </script>
 
-<figure class={cn('relative', className)}>
-  {#if !loaded}
-    <Skeleton class="absolute inset-0 w-full h-full rounded" />
+<article class={cn('flex min-w-0', className, inventory ? 'flex-row' : '')}>
+  <Avatar {hero} class="w-40" />
+
+  {#if inventory}
+    {#if loading}
+      <div class="flex-1 space-y-2">
+        <Skeleton class="h-4 w-[50%]" />
+        <Skeleton class="h-4 w-[20%]" />
+      </div>
+    {:else}
+      <div class="flex-1">
+        <h3 class="text-xl font-medium">{hero}</h3>
+        <p class="text-muted-foreground">{count} items</p>
+      </div>
+    {/if}
   {/if}
-  <img
-    alt={hero}
-    class:hidden={!loaded}
-    class="w-full rounded border-3"
-    draggable="false"
-    oncontextmenu={(event) => event.preventDefault()}
-    onload={() => (loaded = true)}
-    src={imageUrl} />
-</figure>
+</article>
