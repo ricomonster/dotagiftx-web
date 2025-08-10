@@ -35,17 +35,15 @@
   });
 </script>
 
-<section class={cn('catalog-list grid gap-x-8 min-w-0', className)}>
+<section class={cn('catalog-list grid gap-x-8 min-w-0 space-y-2', className)}>
   {#if loading}
-    <div class="space-y-3">
-      {#each {length: limit} as _, i (i)}
-        <ItemLoader />
-      {/each}
-    </div>
+    {#each {length: limit} as _, i (i)}
+      <ItemLoader />
+    {/each}
   {:else}
     {#if catalogs}
       {#each catalogs as catalog, i (i)}
-        <a href={`/${catalog.slug}`} class="my-2 min-w-0">
+        <a href={`/${catalog.slug}`} class="min-w-0">
           <ItemCard {catalog} {sort} class="gap-2" />
         </a>
       {/each}

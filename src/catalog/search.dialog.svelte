@@ -1,6 +1,3 @@
-<script lang="ts" module>
-</script>
-
 <script lang="ts">
   import { Search, X } from '@lucide/svelte';
 
@@ -11,7 +8,8 @@
   import * as Dialog from '$lib/components/ui/dialog';
   import { Input } from '$lib/components/ui/input';
   import { Button } from '$lib/components/ui/button';
-  import { cn } from '$lib/utils';
+
+  import CatalogSearchForm from './search.form.svelte';
 
   let open = $state(false);
 
@@ -40,29 +38,10 @@
     class="h-full !max-w-4xl md:h-auto flex flex-col md:grid md:top-[20%] space-y-4"
     showCloseButton={false}
   >
-    <form method="GET" action="/search" onsubmit={handleSubmit}>
-      <div class="flex items-center gap-2 w-full">
-        <div class="relative w-full">
-          <Search class="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground h-4 w-4" />
-          <Input
-            class="w-full pl-10 pr-10 h-14 text-lg"
-            name="q"
-            placeholder="Search for item, hero, or treasure"
-            type="text"
-          />
-          <Button
-            variant="ghost"
-            class={cn(
-              'absolute right-1 top-1/2 -translate-y-1/2 h-8 px-3',
-              'bg-transparent border border-transparent text-muted-foreground hover:bg-accent'
-            )}
-            onclick={() => (open = false)}
-          >
-            <X />
-          </Button>
-        </div>
-      </div>
-    </form>
+    <CatalogSearchForm
+      type="dialog"
+      onsubmit={handleSubmit}
+      onclear={() => (open = false)} />
 
     {#if $keywords && $keywords.length > 9}
       <div class="space-y-4">

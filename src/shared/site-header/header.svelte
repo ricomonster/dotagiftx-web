@@ -13,7 +13,7 @@
   import Nav from './nav.svelte';
 </script>
 
-<header class="bg-[var(--header-bg-color)] sticky top-0 z-50 w-full">
+<header class="bg-[var(--header-bg-color)] sticky top-0 z-50 w-full !border-b-1">
   <div class="container-wrapper 3xl:fixed:px-0 px-6 py-2">
     <div class="3xl:fixed:container h-(--header-height) flex items-center gap-2">
       <MobileNav class="flex lg:hidden" />

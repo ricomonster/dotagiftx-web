@@ -23,14 +23,14 @@
 <article class={cn('flex items-start min-w-0', className)}>
   <Image
     key={catalog.slug}
-    dimension="97x75"
-    class="w-[97px] shrink-0"
+    dimension="97x64"
+    class="!w-[97px] !h-[64px] shrink-0"
     rarity={catalog.rarity}
     type="item" />
 
   <a href={`/${catalog.slug}`} class="flex-1 min-w-0">
     <h3 class="text-lg font-bold truncate">{catalog.name}</h3>
-    <p class="text-sm">
+    <p class="text-sm truncate">
       <span class="text-muted-foreground">{catalog.hero}</span>
       {#if !['regular'].includes(catalog.rarity)}
         <RarityBadge rarity={catalog.rarity} />

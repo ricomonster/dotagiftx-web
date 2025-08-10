@@ -8,6 +8,9 @@
   }
 </script>
 <script lang="ts">
+  // Packages
+  import { CatalogSearchForm } from '$package/catalog';
+
   import Catalogs from './catalogs.svelte';
   import Heroes from './heroes.svelte';
 
@@ -21,6 +24,8 @@
 </svelte:head>
 
 <section class="home-page container mx-auto p-4 space-y-4">
+  <CatalogSearchForm />
+
   <Catalogs />
 
   <Heroes {heroes} />
