@@ -12,8 +12,10 @@
   // Lib
   import * as Card from '$lib/components/ui/card';
 
+  import TreasureItem from './treasure.svelte';
+
   let { data }: Props = $props();
-  let treasures = data.treasures as Treasure;
+  let treasures = data.treasures as Treasure[];
 </script>
 
 <section class="treasures-page container mx-auto py-8 space-y-6">
@@ -24,10 +26,7 @@
       <Card.Root class="p-0 min-w-0">
         <Card.Content class="p-0 space-y-2">
           <a href={`/search?origin=${treasure.treasure}`}>
-            <figure>
-              <img src={treasure.asset} alt={treasure.treasure} class="w-full rounded object-cover" />
-            </figure>
-            <h3 class="text-lg font-medium text-center truncate py-2 px-4">{treasure.treasure}</h3>
+            <TreasureItem {treasure} />
           </a>
         </Card.Content>
       </Card.Root>

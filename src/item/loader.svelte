@@ -5,7 +5,7 @@
 
 <div class="flex flex-row gap-2">
   <!-- Image Skeleton -->
-  <div class="w-[97px] h-[64px]">
+  <div class="w-[97px] h-[67px]">
     <Skeleton class="w-full aspect-[3/2] flex-shrink-0 border-3" />
   </div>
 
