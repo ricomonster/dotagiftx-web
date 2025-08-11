@@ -2,9 +2,10 @@
   type SearchFormType = 'page' | 'dialog'
 
   interface Props {
-    type?: SearchFormType
-    onclear?(): void
-    onsubmit?(): void
+    query?: string;
+    type?: SearchFormType;
+    onclear?(): void;
+    onsubmit?(): void;
   }
 </script>
 
@@ -16,9 +17,9 @@
   import { Button } from '$lib/components/ui/button';
   import { cn } from '$lib/utils';
 
-  let { type = 'page', onclear, onsubmit }: Props = $props();
+  let { type = 'page', query = '', onclear, onsubmit }: Props = $props();
 
-  let q = $state<string>('');
+  let q = $derived(query);
 
   // Handles when the X button is clicked.
   const handleXButton = (): void => {

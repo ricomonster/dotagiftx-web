@@ -18,6 +18,7 @@
 
   import Related from './related.svelte';
   import Tabs from './tabs.svelte';
+  import Badge from '$lib/components/ui/badge/badge.svelte';
 
   let { data }: Props = $props();
 
@@ -52,9 +53,16 @@
             {/if}
           </div>
         </div>
+
         <p class="text-xl">
           <span class="text-muted-foreground">Used by:</span> <a href={`/search?hero=${catalog.hero}`}>{catalog.hero}</a>
         </p>
+
+        <div>
+          <a href={`https://liquipedia.net/dota2/${catalog.name.replace(/\s+/g, '_')}`}>
+            <Badge variant="outline">Dota 2 Wiki</Badge>
+          </a>
+        </div>
       </header>
 
       <div class="grid grid-cols-2 gap-4">

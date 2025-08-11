@@ -65,5 +65,14 @@
         {catalog.quantity} listings
       </p>
     {/if}
+
+    {#if !sort}
+      <p class="text-sm font-medium text-muted-foreground">
+        {catalog.quantity} listings from
+      </p>
+      <p class="font-medium text-xl text-green-600">
+        <Price value={catalog.lowest_ask} />
+      </p>
+    {/if}
   </div>
 </article>

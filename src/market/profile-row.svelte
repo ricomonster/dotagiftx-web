@@ -14,6 +14,7 @@
   import { BoonBadge, ProfileContact } from '$package/user';
 
   // Libs
+  import { Button } from '$lib/components/ui/button';
   import { cn } from '$lib/utils';
 
   let { class: className, item }: Props = $props();
@@ -59,6 +60,9 @@
         buttonText="View"
         profile={item.user}
       />
+    {:else}
+      <Button variant="outline" class="hidden md:block" disabled={true}>Sign in to view</Button>
+      <Button variant="link" class="md:hidden p-0 h-6" disabled={true}>Sign in to view</Button>
     {/if}
   </div>
 </article>

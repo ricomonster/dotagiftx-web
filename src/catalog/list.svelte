@@ -2,10 +2,10 @@
   import type { Catalog, CatalogSort, GetCatalogOpts } from '$package/dotagiftx';
 
   interface Props extends GetCatalogOpts {
-    catalogs?: Catalog[]
-    class?: string
-    limit?: number
-    sort?: CatalogSort
+    catalogs?: Catalog[];
+    class?: string;
+    limit?: number;
+    sort?: CatalogSort;
   }
 </script>
 <script lang="ts">
@@ -36,7 +36,7 @@
   let loading = $state(true);
 
   onMount(async () => {
-    if (!catalogs || catalogs.length === 0) {
+    if ((hero || sort || origin) && (!catalogs || catalogs.length === 0)) {
       // Get the catalog
       const result = await getCatalogs({
         ...(hero && { hero }),
@@ -56,7 +56,7 @@
   });
 </script>
 
-<section class={cn('catalog-list min-w-0 grid gap-x-8 min-w-0 space-y-2', className)}>
+<section class={cn('catalog-list min-w-0 grid gap-x-8 space-y-2', className)}>
   {#if loading}
     {#each {length: limit} as _, i (i)}
       <ItemLoader />

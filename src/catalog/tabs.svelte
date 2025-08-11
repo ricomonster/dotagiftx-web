@@ -11,6 +11,7 @@
   import { MarketList } from '$package/market';
 
   // Lib
+  import { Badge } from '$lib/components/ui/badge';
   import * as Card from '$lib/components/ui/card';
   import * as Tabs from '$lib/components/ui/tabs';
 
@@ -19,8 +20,8 @@
 
 <Tabs.Root value="offers" class="w-full justify-between">
   <Tabs.List class="w-full">
-    <Tabs.Trigger value="offers">Offers</Tabs.Trigger>
-    <Tabs.Trigger value="orders">Orders</Tabs.Trigger>
+    <Tabs.Trigger value="offers">Offers <Badge variant="outline">{catalog.quantity}</Badge></Tabs.Trigger>
+    <Tabs.Trigger value="orders">Orders <Badge variant="outline">{catalog.bid_count}</Badge></Tabs.Trigger>
     <Tabs.Trigger value="activities">Activities</Tabs.Trigger>
   </Tabs.List>
 

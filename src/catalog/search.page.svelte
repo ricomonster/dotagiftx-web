@@ -22,15 +22,14 @@
 
   let results = data.results as DotagiftxList<Catalog[]>;
   let sort = data.sort as CatalogSort;
-  let q = data.q;
 
-  let keyword = $state<string>('');
+  let query = $state<string>('');
 
   onMount(() => {
-    keyword = buildKeyword();
+    query = buildQuery();
   });
 
-  const buildKeyword = (): string => {
+  const buildQuery = (): string => {
     if (data.q) {
       return data.q;
     }
@@ -49,12 +48,12 @@
 
 <section class="catalog-search-page container mx-auto py-8 space-y-4">
   <!-- Search input -->
-  <CatalogSearchForm />
+  <CatalogSearchForm {query} />
 
   <!-- Toolbar/Filters -->
   <CatalogSearchToolBar
     total={results.total_count}
-    {keyword}
+    {query}
     {sort} />
 
   <!-- Results -->

@@ -7,8 +7,8 @@
   interface Props {
     total: number;
     class?: string;
-    keyword?: string;
     layout?: CatalogSearchLayout;
+    query?: string;
     sort?: CatalogSort
     onsort?(sort: CatalogSort): void;
     onlayout?(layout: CatalogSearchLayout): void;
@@ -33,8 +33,8 @@
   let {
     total,
     class: className,
-    keyword,
     layout = 'list',
+    query,
     sort = 'popular',
     onlayout,
     onsort
@@ -56,7 +56,7 @@
 </script>
 
 <section class={cn('flex flex-row justify-between items-center', className)}>
-  <p class="text-lg font-bold">{total || 0} results for "{keyword}"</p>
+  <p class="text-lg font-bold">{total || 0} results for "{query}"</p>
   <div class="gap-2 flex">
     <DropdownMenu.Root>
       <DropdownMenu.Trigger>
