@@ -48,15 +48,17 @@
 
   <div class="flex flex-col md:flex-row md:items-center md:gap-2 shrink-0 text-right">
     <Price class="font-medium text-green-600" value={item.price} />
-    <ProfileContact
-      class="hidden md:block"
-      profile={item.user}
-    />
-    <ProfileContact
-      class="md:hidden p-0 h-6"
-      variant="link"
-      buttonText="View"
-      profile={item.user}
-    />
+    {#if item.user.id}
+      <ProfileContact
+        class="hidden md:block"
+        profile={item.user}
+      />
+      <ProfileContact
+        class="md:hidden p-0 h-6"
+        variant="link"
+        buttonText="View"
+        profile={item.user}
+      />
+    {/if}
   </div>
 </article>

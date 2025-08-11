@@ -17,7 +17,6 @@
   import { cn } from '$lib/utils';
 
   let { class: className, item }: Props = $props();
-  console.log(item);
 </script>
 
 <article class={cn('flex items-start', className)}>

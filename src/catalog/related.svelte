@@ -19,8 +19,8 @@
   let { catalog, class: className }: Props = $props();
 </script>
 
-<div class={cn('grid gap-2', className)}>
-  <Card.Root>
+<div class={cn('grid gap-2 min-w-0', className)}>
+  <Card.Root class="min-w-0">
     <Card.Content>
       <a href={`/search?hero=${catalog.hero}`}>
         <Hero hero={catalog.hero} inventory={true} class="gap-2" />
@@ -28,9 +28,9 @@
     </Card.Content>
   </Card.Root>
 
-  <Card.Root>
+  <Card.Root class="min-w-0">
     <Card.Content>
-      <a href={`/search?origin=${catalog.origin}`} class="flex flex-row gap-4">
+      <a href={`/search?origin=${catalog.origin}`}>
         <Treasure class="gap-2" treasure={catalog.origin} inventory={true} />
       </a>
     </Card.Content>

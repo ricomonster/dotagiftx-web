@@ -18,6 +18,7 @@
   import BoonBadge from './boon.svelte';
 
   let { profile, class: className }: Props = $props();
+  console.log(profile);
 </script>
 
 <Card.Root class={className}>
@@ -69,5 +70,7 @@
         Dotabuff
       </Button>
     </div>
+
+    <p>{profile.notes}</p>
   </Card.Content>
 </Card.Root>

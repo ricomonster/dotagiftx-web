@@ -41,13 +41,13 @@
   });
 </script>
 
-<article class={cn('flex', inventory ? 'flex-row' : 'flex-col', className)}>
+<article class={cn('flex min-w-0', inventory ? 'flex-row' : 'flex-col', className)}>
   {#if typeof treasure !== 'string'}
-    <figure class={cn(inventory ? 'w-40' : 'w-full')}>
+    <figure class={cn(inventory ? 'w-40' : 'w-full', 'shrink-0')}>
       <img src={treasure.asset} alt={treasure.treasure} class="w-full object-cover" />
     </figure>
-    <div class="flex-1">
-      <h3 class={cn('text-xl font-medium truncate', inventory ? '' : 'text-center p-4')}>{treasure.treasure}</h3>
+    <div class="flex-1 min-w-0">
+      <h3 class={cn('text-xl font-medium', inventory ? '' : 'text-center p-4 truncate')}>{treasure.treasure}</h3>
       {#if inventory}
         <p class="text-muted-foreground">{treasureItemCount} items</p>
       {/if}
