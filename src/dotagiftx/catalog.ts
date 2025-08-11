@@ -50,8 +50,11 @@ export interface GetCatalogOpts {
  * @returns {Promise<Result<Catalog>>}
  */
 export const getCatalog = (slug: string): Promise<Result<Catalog>> => {
+  let path = PATHS.CATALOG.replace(':slug', slug);
+  path += '?sort=lowest&page=1&type=10&status=200&inventoryStatus=200';
+
   return send<unknown, Catalog>({
-    path: PATHS.CATALOG.replace(':slug', slug)
+    path
   });
 };
 
@@ -68,7 +71,6 @@ export const getCatalogs = (opts: GetCatalogOpts): Promise<Result<DotagiftxList<
   }
 
   const query = qs.stringify(opts);
-  console.log('query', query);
   if (query) {
     path += `?${query}`;
   }

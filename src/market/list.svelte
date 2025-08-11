@@ -9,6 +9,7 @@
   interface Props extends MarketOptions {
     items?: Market[];
     class?: string;
+    total?: number;
   }
 </script>
 
@@ -38,14 +39,15 @@
     type,
     user_id: userId,
     hero,
+    page = 1,
+    total = 0,
   }: Props = $props();
 
   // Reactive states
   let initial = $state(false);
   let loading = $state(true);
-  let total = $state(0);
   let currentSort = $state(sort);
-  let currentPage = $state(1);
+  let currentPage = $state(page);
   let listItems = $state(items);
 
   // Fetch data from Market API
@@ -74,7 +76,7 @@
 
   // Initial data fetch on mount
   onMount(async () => {
-    if ((itemId || userId) && (!items || items.length === 0)) {
+    if (!items || items.length === 0) {
       await fetchMarketData();
     }
 
@@ -84,7 +86,12 @@
 
   // Handle sort change
   const handleToggleSort = async (sort: MarketSort): Promise<void> => {
+    // Set sort
     currentSort = sort;
+
+    // Reset pagination
+    currentPage = 1;
+
     initial = false;
     await fetchMarketData();
     initial = true;

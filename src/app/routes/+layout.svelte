@@ -1,5 +1,6 @@
 <script lang="ts">
   import '../app.css';
+  import '../custom.css';
 
   import { onMount } from 'svelte';
 

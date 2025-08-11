@@ -29,16 +29,17 @@
       <Tabs.Content value="offers">
         <MarketList
           index="item_id"
-          itemId={catalog.id}
+          item_id={catalog.id}
           items={catalog.asks}
           sort="lowest"
+          total={catalog.quantity}
           type="ask" />
       </Tabs.Content>
 
       <Tabs.Content value="orders">
         <MarketList
           index="item_id"
-          itemId={catalog.id}
+          item_id={catalog.id}
           sort="highest"
           type="bid" />
       </Tabs.Content>

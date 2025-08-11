@@ -18,7 +18,6 @@
   import BoonBadge from './boon.svelte';
 
   let { profile, class: className }: Props = $props();
-  console.log(profile);
 </script>
 
 <Card.Root class={className}>

@@ -60,8 +60,7 @@
       <div class="grid grid-cols-2 gap-4">
         <Button
           href={`/post?s=${catalog.slug}`}
-          variant="outline"
-          class="gold-button"
+          variant="outline-alt"
           size="lg"
         >
           Post this item

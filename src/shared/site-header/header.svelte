@@ -29,7 +29,7 @@
           <CatalogSearchDialog />
         </div>
 
-        <Button href="/post" variant="outline" class="hidden md:block gold-button !bg-[var(--header-bg-color)]">Post Item</Button>
+        <Button href="/post" variant="outline-alt" class="hidden md:block !bg-[var(--header-bg-color)]">Post Item</Button>
         <Button href="/login" variant="ghost" class="hidden md:flex flex-row items-center">
           <SteamIcon /> Sign in
         </Button>

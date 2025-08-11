@@ -9,6 +9,8 @@
 </script>
 
 <script lang="ts">
+  import { onMount } from 'svelte';
+
   // Lib
   import * as Card from '$lib/components/ui/card';
 
@@ -21,6 +23,28 @@
   let results = data.results as DotagiftxList<Catalog[]>;
   let sort = data.sort as CatalogSort;
   let q = data.q;
+
+  let keyword = $state<string>('');
+
+  onMount(() => {
+    keyword = buildKeyword();
+  });
+
+  const buildKeyword = (): string => {
+    if (data.q) {
+      return data.q;
+    }
+
+    if (data.origin) {
+      return data.origin;
+    }
+
+    if (data.hero) {
+      return data.hero;
+    }
+
+    return '';
+  };
 </script>
 
 <section class="catalog-search-page container mx-auto py-8 space-y-4">
@@ -30,7 +54,7 @@
   <!-- Toolbar/Filters -->
   <CatalogSearchToolBar
     total={results.total_count}
-    {q}
+    {keyword}
     {sort} />
 
   <!-- Results -->

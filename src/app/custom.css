@@ -1,0 +1,23 @@
+.gold-button:hover {
+  color: var(--gold);
+  background-color: rgba(199, 145, 35, 0.08);
+  border: 1px solid rgb(199, 145, 35);
+}
+
+.skyblue-button {
+  background-color: var(--background);
+  color: var(--sky-blue);
+  border-color: var(--sky-blue);
+}
+
+.bg-accent-gold {
+  background-color: rgba(199, 145, 35, 0.08);
+}
+
+.border-gold {
+  border-color: var(--gold)
+}
+
+.text-gold {
+  color: var(--gold);
+}

@@ -105,29 +105,6 @@
   --sky-blue: rgb(77, 182, 172);
 }
 
-/* Improve these */
-.gold-button {
-  background-color: var(--background);
-  color: var(--gold);
-  border-color: var(--gold);
-}
-
-.gold-button:hover {
-  color: var(--gold);
-  background-color: rgba(199, 145, 35, 0.08);
-  border: 1px solid rgb(199, 145, 35);
-}
-
-.skyblue-button {
-  background-color: var(--background);
-  color: var(--sky-blue);
-  border-color: var(--sky-blue);
-}
-
-.text-gold {
-  color: var(--gold)
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

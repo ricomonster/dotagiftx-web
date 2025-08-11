@@ -6,10 +6,10 @@
 
   interface Props {
     total: number;
-    layout?: CatalogSearchLayout;
-    q?: string;
-    sort?: CatalogSort
     class?: string;
+    keyword?: string;
+    layout?: CatalogSearchLayout;
+    sort?: CatalogSort
     onsort?(sort: CatalogSort): void;
     onlayout?(layout: CatalogSearchLayout): void;
   }
@@ -31,11 +31,11 @@
   import { cn } from '$lib/utils';
 
   let {
-    class: className,
-    layout = 'list',
-    q,
-    sort = 'popular',
     total,
+    class: className,
+    keyword,
+    layout = 'list',
+    sort = 'popular',
     onlayout,
     onsort
   }: Props = $props();
@@ -56,7 +56,7 @@
 </script>
 
 <section class={cn('flex flex-row justify-between items-center', className)}>
-  <p class="text-lg font-bold">{total || 0} results for "{q}"</p>
+  <p class="text-lg font-bold">{total || 0} results for "{keyword}"</p>
   <div class="gap-2 flex">
     <DropdownMenu.Root>
       <DropdownMenu.Trigger>

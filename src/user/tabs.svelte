@@ -32,7 +32,7 @@
           class="w-full min-w-0"
           index="user_id"
           sort="created_at:desc"
-          userId={profile.id}
+          user_id={profile.id}
           type="ask" />
       </Tabs.Content>
 
@@ -40,7 +40,7 @@
         <MarketList
           class="w-full min-w-0"
           index="user_id"
-          userId={profile.id}
+          user_id={profile.id}
           sort="updated_at:desc"
           status={300} />
       </Tabs.Content>
@@ -49,7 +49,7 @@
         <MarketList
           class="w-full min-w-0"
           index="user_id"
-          userId={profile.id}
+          user_id={profile.id}
           sort="updated_at:desc"
           status={400} />
       </Tabs.Content>
@@ -58,7 +58,7 @@
         <MarketList
           class="w-full min-w-0"
           index="user_id"
-          userId={profile.id}
+          user_id={profile.id}
           sort="updated_at:desc"
           status={410} />
       </Tabs.Content>

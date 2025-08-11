@@ -14,7 +14,7 @@
     </Card.Header>
 
     <Card.Content class="py-0">
-      <CatalogList sort="trending" />
+      <CatalogList class="lg:grid-cols-2 xl:grid-cols-1" sort="trending" />
     </Card.Content>
   </Card.Root>
 

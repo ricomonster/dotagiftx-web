@@ -56,20 +56,18 @@
   });
 </script>
 
-<section class={cn('catalog-list min-w-0', className)}>
-  <div class="grid gap-x-8 min-w-0 space-y-2">
-    {#if loading}
-      {#each {length: limit} as _, i (i)}
-        <ItemLoader />
+<section class={cn('catalog-list min-w-0 grid gap-x-8 min-w-0 space-y-2', className)}>
+  {#if loading}
+    {#each {length: limit} as _, i (i)}
+      <ItemLoader />
+    {/each}
+  {:else}
+    {#if catalogs}
+      {#each catalogs as catalog, i (i)}
+        <a href={`/${catalog.slug}`} class="min-w-0 col-span-1">
+          <ItemCard {catalog} {sort} class="gap-2" />
+        </a>
       {/each}
-    {:else}
-      {#if catalogs}
-        {#each catalogs as catalog, i (i)}
-          <a href={`/${catalog.slug}`} class="min-w-0">
-            <ItemCard {catalog} {sort} class="gap-2" />
-          </a>
-        {/each}
-      {/if}
     {/if}
-  </div>
+  {/if}
 </section>
