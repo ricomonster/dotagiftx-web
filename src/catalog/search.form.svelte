@@ -5,7 +5,7 @@
     query?: string;
     type?: SearchFormType;
     onclear?(): void;
-    onsubmit?(): void;
+    onsubmit?(q?: string): void;
   }
 </script>
 
@@ -35,9 +35,8 @@
 
   // Handles the form submission event.
   const handleOnSubmit = (): void => {
-    if (type === 'dialog' && onsubmit) {
-      onsubmit();
-      return;
+    if (onsubmit) {
+      onsubmit(q);
     }
   };
 </script>

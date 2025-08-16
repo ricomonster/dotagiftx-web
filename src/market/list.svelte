@@ -16,6 +16,9 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
+  // Packages
+  import { RowLoader } from '$package/shared';
+
   // Lib
   import * as Pagination from '$lib/components/ui/pagination';
   import { cn } from '$lib/utils';
@@ -111,7 +114,7 @@
 
   <div class="w-full min-w-0">
     {#if loading}
-      <p class="p-8 text-center">Loading...</p>
+      <RowLoader item={10} type="item" />
     {:else}
       {#if listItems && listItems.length > 0}
         {#each listItems as item, i (i)}

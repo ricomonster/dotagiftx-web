@@ -29,7 +29,7 @@
   <title>DotagiftX :: Listings for {catalog.name}</title>
 </svelte:head>
 
-<section class="catalog-page container mx-auto py-8">
+<section class="catalog-page container mx-auto">
   <div class="grid lg:grid-cols-2 3xl:grid-cols-3 gap-x-10 gap-y-4 px-4">
     <div class="lg:col-span-1 space-y-8 min-w-0">
       <Image

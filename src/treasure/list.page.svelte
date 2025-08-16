@@ -18,7 +18,7 @@
   let treasures = data.treasures as Treasure[];
 </script>
 
-<section class="treasures-page container mx-auto py-8 space-y-6">
+<section class="treasures-page container mx-auto space-y-6">
   <h1 class="font-bold text-4xl">All Giftable Treasures</h1>
 
   <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">

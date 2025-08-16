@@ -20,7 +20,7 @@
   <title>DotagiftX :: {profile.name}</title>
 </svelte:head>
 
-<section class="profile-page container mx-auto p-4">
+<section class="profile-page container mx-auto">
   <div class="grid gap-4 xl:grid-cols-2 2xl:grid-cols-3">
     <div class="col-span-1">
       <ProfileCard {profile} />

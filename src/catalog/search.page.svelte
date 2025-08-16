@@ -9,7 +9,8 @@
 </script>
 
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { page } from '$app/state';
+  import { SvelteURLSearchParams } from 'svelte/reactivity';
 
   // Lib
   import * as Card from '$lib/components/ui/card';
@@ -17,17 +18,12 @@
   import CatalogSearchForm from './search.form.svelte';
   import CatalogSearchToolBar from './search.toolbar.svelte';
   import CatalogList from './list.svelte';
+  import { goto } from '$app/navigation';
 
   let { data }: Props = $props();
 
-  let results = data.results as DotagiftxList<Catalog[]>;
-  let sort = data.sort as CatalogSort;
-
-  let query = $state<string>('');
-
-  onMount(() => {
-    query = buildQuery();
-  });
+  let results = $derived(data.results as DotagiftxList<Catalog[]>);
+  let sort = $derived(data.sort as CatalogSort);
 
   const buildQuery = (): string => {
     if (data.q) {
@@ -44,14 +40,23 @@
 
     return '';
   };
+
+  const handleSort = (sort: CatalogSort) => {
+    let query = new SvelteURLSearchParams(page.url.searchParams.toString());
+    query.set('sort', sort);
+    goto(`?${query.toString()}`);
+  };
+
+  let query = $derived(buildQuery());
 </script>
 
-<section class="catalog-search-page container mx-auto py-8 space-y-4">
+<section class="catalog-search-page container mx-auto space-y-4">
   <!-- Search input -->
   <CatalogSearchForm {query} />
 
   <!-- Toolbar/Filters -->
   <CatalogSearchToolBar
+    onsort={handleSort}
     total={results.total_count}
     {query}
     {sort} />

@@ -23,7 +23,7 @@
   <title>DotagiftX :: Dota 2 Giftables Community Market</title>
 </svelte:head>
 
-<section class="home-page container mx-auto py-8 space-y-4">
+<section class="home-page container mx-auto space-y-4">
   <CatalogSearchForm />
 
   <Catalogs />

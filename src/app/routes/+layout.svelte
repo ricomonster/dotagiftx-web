@@ -5,7 +5,7 @@
   import { onMount } from 'svelte';
 
   // Packages
-  import { SiteHeader } from '$package/shared';
+  import { Footer, SiteHeader } from '$package/shared';
   import { getTopKeywords, keywords } from '$package/stats';
 
   let { children } = $props();
@@ -18,5 +18,12 @@
   });
 </script>
 
-<SiteHeader />
-{@render children()}
+<div class="min-h-screen flex flex-col">
+  <SiteHeader />
+
+  <main class="flex-grow py-8">
+    {@render children()}
+  </main>
+
+  <Footer />
+</div>
