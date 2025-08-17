@@ -52,13 +52,13 @@
     {#if item.user.id}
       <ProfileContact
         class="hidden md:block"
-        profile={item.user}
+        profile={{...item.user, notes: item.notes }}
       />
       <ProfileContact
         class="md:hidden p-0 h-6"
         variant="link"
         buttonText="View"
-        profile={item.user}
+        profile={{...item.user, notes: item.notes }}
       />
     {:else}
       <Button variant="outline" class="hidden md:block" disabled={true}>Sign in to view</Button>

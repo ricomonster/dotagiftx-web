@@ -21,3 +21,7 @@
 .text-gold {
   color: var(--gold);
 }
+
+.text-sky-blue {
+  color: var(--sky-blue);
+}

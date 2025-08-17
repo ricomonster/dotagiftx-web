@@ -1,13 +1,13 @@
 import { error } from '@sveltejs/kit';
 
 // Interfaces
-import type { PageServerLoad as ProfilePageServerLoad } from '$routes/profiles/[profileId]/$types';
+import type { PageServerLoad as ProfilePageServerLoad } from '$routes/profiles/[profileId]/[action]/$types';
 
 // Packages
 import { getUser } from '$package/dotagiftx';
 
 export const profile: ProfilePageServerLoad = async ({ params }) => {
-  const { profileId } = params;
+  const { profileId, action } = params;
 
   const profile = await getUser(profileId);
   if (profile.isErr()){
@@ -16,6 +16,7 @@ export const profile: ProfilePageServerLoad = async ({ params }) => {
   }
 
   return {
+    action,
     profile: profile.value
   };
 };

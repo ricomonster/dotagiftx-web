@@ -33,14 +33,16 @@
   </Card.Header>
   <Card.Content class="space-y-2 py-0">
     <div class="space-x-2">
-      <span>{profile.market_stats.live} items</span>·
-      <span>{profile.market_stats.reserved} reserved</span>·
-      <span>{profile.market_stats.sold} delivered</span>·
-      <span>{profile.market_stats.bid_completed} bought</span>
+      <a href={`/profiles/${profile.steam_id}`}>{profile.market_stats.live} items</a>·
+      <a href={`/profiles/${profile.steam_id}/reserved`}>{profile.market_stats.reserved} reserved</a>·
+      <a href={`/profiles/${profile.steam_id}/delivered`}>{profile.market_stats.sold} delivered</a>·
+      <a href={`/profiles/${profile.steam_id}/bought`}>{profile.market_stats.bid_completed} bought</a>
     </div>
 
     {#if profile.boons && profile.boons.length > 0}
-      <BoonBadge class="text-md font-medium" boons={profile.boons} />
+      <div class="space-x-1">
+        <BoonBadge class="text-md font-medium" boons={profile.boons} />
+      </div>
     {/if}
 
     <div class="space-y-2">
@@ -70,6 +72,11 @@
       </Button>
     </div>
 
-    <p>{profile.notes}</p>
+    {#if profile.notes}
+      <div>
+        <p class="text-muted-foreground">Notes:</p>
+        <p class="text-lg text-sky-300">{profile.notes}</p>
+      </div>
+    {/if}
   </Card.Content>
 </Card.Root>

@@ -14,6 +14,7 @@
 
   let { data }: Props = $props();
   let profile = data.profile as User;
+  let action = $derived(data.action as string);
 </script>
 
 <svelte:head>
@@ -27,7 +28,7 @@
     </div>
 
     <div class="col-span-1 2xl:col-span-2 w-full min-w-0">
-      <ProfileTabs {profile} />
+      <ProfileTabs {profile} {action} />
     </div>
   </div>
 </section>
