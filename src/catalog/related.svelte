@@ -13,26 +13,17 @@
   import { Treasure } from '$package/treasure';
 
   // Lib
-  import * as Card from '$lib/components/ui/card';
   import { cn } from '$lib/utils';
 
   let { catalog, class: className }: Props = $props();
 </script>
 
-<div class={cn('grid gap-2 min-w-0', className)}>
-  <Card.Root class="min-w-0">
-    <Card.Content>
-      <a href={`/search?hero=${catalog.hero}`}>
-        <Hero hero={catalog.hero} inventory={true} class="gap-2" />
-      </a>
-    </Card.Content>
-  </Card.Root>
+<div class={cn('grid gap-3 min-w-0', className)}>
+  <a href={`/search?hero=${catalog.hero}`}>
+    <Hero hero={catalog.hero} inventory={true} class="gap-2" />
+  </a>
 
-  <Card.Root class="min-w-0">
-    <Card.Content>
-      <a href={`/search?origin=${catalog.origin}`}>
-        <Treasure class="gap-2" treasure={catalog.origin} inventory={true} />
-      </a>
-    </Card.Content>
-  </Card.Root>
+  <a href={`/search?origin=${catalog.origin}`}>
+    <Treasure class="gap-2" treasure={catalog.origin} inventory={true} />
+  </a>
 </div>
