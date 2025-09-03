@@ -114,7 +114,7 @@
 
   <div class="w-full min-w-0">
     {#if loading}
-      <RowLoader item={10} type="item" />
+      <RowLoader item={10} type={index === 'item_id' ? 'profile' : 'item'} />
     {:else}
       {#if listItems && listItems.length > 0}
         {#each listItems as item, i (i)}

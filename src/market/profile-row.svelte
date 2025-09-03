@@ -21,29 +21,31 @@
 </script>
 
 <article class={cn('flex items-start', className)}>
-  <Image
-    key={item.user.avatar}
-    dimension="60x60"
-    class="!w-12 !md:w-12 shrink-0"
-    boons={item.user.boons}
-    type="user" />
+  <a href={`/profiles/${item.user.steam_id}`} class="flex gap-2 min-w-0 flex-1">
+    <Image
+      key={item.user.avatar}
+      dimension="60x60"
+      class="!w-12 !md:w-12 shrink-0"
+      boons={item.user.boons}
+      type="user" />
 
-  <a href={`/profiles/${item.user.steam_id}`} class="flex-1 min-w-0">
-    <div class="flex items-start gap-1 min-w-0">
-      <h3 class="truncate font-medium md:text-lg min-w-0">
-        {item.user.name}
-      </h3>
-      {#if item.user.boons && item.user.boons.length}
-        <BoonBadge class="text-xs shrink-0 hidden md:block" boons={item.user.boons} />
-      {/if}
-    </div>
-    <div class="flex items-center gap-1 min-w-0">
-      {#if item.user.boons && item.user.boons.length}
-        <BoonBadge class="text-xs shrink-0 md:hidden" boons={item.user.boons} />
-      {/if}
-      <p class="text-muted-foreground text-sm truncate min-w-0 flex-1">
-        Posted <DateTime value={item.created_at} />
-      </p>
+    <div class="flex-1 min-w-0">
+      <div class="flex items-start gap-1 min-w-0">
+        <h3 class="truncate font-medium md:text-lg min-w-0">
+          {item.user.name}
+        </h3>
+        {#if item.user.boons && item.user.boons.length}
+          <BoonBadge class="text-xs shrink-0 hidden md:block" boons={item.user.boons} />
+        {/if}
+      </div>
+      <div class="flex items-center gap-1 min-w-0">
+        {#if item.user.boons && item.user.boons.length}
+          <BoonBadge class="text-xs shrink-0 md:hidden" boons={item.user.boons} />
+        {/if}
+        <p class="text-muted-foreground text-sm truncate min-w-0 flex-1">
+          Posted <DateTime value={item.created_at} />
+        </p>
+      </div>
     </div>
   </a>
 

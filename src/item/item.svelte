@@ -24,7 +24,7 @@
   <Image
     key={catalog.slug}
     dimension="97x64"
-    class="!w-[97px] !h-[64px] shrink-0"
+    class="!w-[97px] !h-[65px] shrink-0"
     rarity={catalog.rarity}
     type="item" />
 

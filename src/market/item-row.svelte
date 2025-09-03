@@ -20,24 +20,25 @@
 </script>
 
 <article class={cn('flex items-start', className)}>
-  <!-- Left: Avatar -->
-  <Image
-    key={item.item.slug}
-    dimension="97x75"
-    class="!w-22 shrink-0"
-    rarity={item.item.rarity}
-    type="item" />
+  <a href={`/${item.item.slug}`} class="flex flex-1 gap-2 min-w-0">
+    <Image
+      key={item.item.slug}
+      dimension="97x75"
+      class="!w-22 h-[60px] shrink-0"
+      rarity={item.item.rarity}
+      type="item" />
 
-  <a href={`/${item.item.slug}`} class="flex-1 min-w-0">
-    <h3 class="truncate font-medium md:text-lg min-w-0 flex-1 lg:flex-none">
-      {item.item.name}
-    </h3>
+    <div class="flex-1 min-w-0">
+      <h3 class="truncate font-medium md:text-lg min-w-0 flex-1 lg:flex-none">
+        {item.item.name}
+      </h3>
 
-    <div class="flex items-start min-w-0 gap-1">
-      <span class="text-muted-foreground">{item.item.hero}</span>
-      {#if !['regular'].includes(item.item.rarity)}
-        <RarityBadge class="shrink-0" rarity={item.item.rarity} />
-      {/if}
+      <div class="flex items-start min-w-0 gap-1">
+        <span class="text-muted-foreground">{item.item.hero}</span>
+        {#if !['regular'].includes(item.item.rarity)}
+          <RarityBadge class="shrink-0" rarity={item.item.rarity} />
+        {/if}
+      </div>
     </div>
   </a>
 

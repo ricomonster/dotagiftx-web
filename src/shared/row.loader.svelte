@@ -20,9 +20,15 @@
   {#each {length: item} as _, i (i)}
     <article class="flex items-start gap-2 py-2">
       <!-- Image Skeleton -->
-      {#if type === 'item'}
+      {#if type === 'profile'}
         <div class="w-12">
           <Skeleton class="w-full aspect-[1/1] flex-shrink-0 border-3" />
+        </div>
+      {/if}
+
+      {#if type === 'item'}
+        <div class="w-22">
+          <Skeleton class="w-full h-[60px] aspect-[3/2] flex-shrink-0 border-3" />
         </div>
       {/if}
 
